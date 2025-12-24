@@ -135,12 +135,12 @@ const ProjectModal: React.FC<{ project: PortfolioItem; onClose: () => void }> = 
               <h2 className="text-3xl md:text-5xl font-bold font-futuristic mb-6 uppercase tracking-tight leading-none text-white">{project.title}</h2>
             </ScrollReveal>
             <ScrollReveal delay={200} direction="right">
-              <p className="text-slate-400 text-lg mb-8 font-light leading-relaxed">
+              <p className="text-white text-lg mb-8 font-light leading-relaxed">
                 {project.description}
               </p>
               {project.outcome && (
                 <div className="mt-4 p-4 rounded-2xl bg-white/5 border border-white/5">
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Key Outcome</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-white mb-2">Key Outcome</h4>
                   <p className="text-white font-bold">{project.outcome}</p>
                 </div>
               )}
@@ -148,7 +148,7 @@ const ProjectModal: React.FC<{ project: PortfolioItem; onClose: () => void }> = 
             <ScrollReveal delay={300} direction="right">
               <div className="flex flex-wrap gap-3 my-10">
                  {['Strategy', 'Execution', 'Optimization'].map(tag => (
-                   <span key={tag} className="px-5 py-2 rounded-full glass border border-white/10 text-[10px] font-bold uppercase tracking-widest text-slate-300">{tag}</span>
+                   <span key={tag} className="px-5 py-2 rounded-full glass border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white">{tag}</span>
                  ))}
               </div>
             </ScrollReveal>
@@ -217,7 +217,7 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className={`min-h-screen bg-[#050505] text-slate-100 selection:bg-purple-900/30 selection:text-white font-sans overflow-x-hidden transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+    <div className={`min-h-screen bg-[#050505] text-white selection:bg-purple-900/30 selection:text-white font-sans overflow-x-hidden transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
       
       {selectedProject && (
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
@@ -253,7 +253,7 @@ const App: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => navigate(item.id)}
-                className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-all hover:text-purple-400 relative group py-2 ${currentPage === item.id ? 'text-purple-500' : 'text-slate-400'}`}
+                className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-all hover:text-purple-400 relative group py-2 ${currentPage === item.id ? 'text-purple-500' : 'text-white'}`}
               >
                 {item.name}
                 <span className={`absolute bottom-0 left-0 h-[2px] bg-purple-500 transition-all duration-300 ${currentPage === item.id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -276,7 +276,7 @@ const App: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => navigate(item.id)}
-                className={`text-2xl font-bold uppercase tracking-[0.4em] transform transition-all ${currentPage === item.id ? 'text-purple-500' : 'text-slate-600'}`}
+                className={`text-2xl font-bold uppercase tracking-[0.4em] transform transition-all ${currentPage === item.id ? 'text-purple-500' : 'text-white'}`}
               >
                 {item.name}
               </button>
@@ -305,7 +305,7 @@ const App: React.FC = () => {
                 </ScrollReveal>
 
                 <ScrollReveal delay={500}>
-                  <p className="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
+                  <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto mb-16 font-light leading-relaxed">
                     Visualix Studio helps brands grow with modern web design, powerful development, and high-quality video editing.
                   </p>
                 </ScrollReveal>
@@ -316,24 +316,24 @@ const App: React.FC = () => {
                       <div className="absolute inset-0 bg-white"></div>
                       <span className="relative z-10 flex items-center gap-3 uppercase tracking-widest text-sm text-black">Get a Free Quote <Icon name="ArrowRight" className="w-5 h-5 group-hover:translate-x-2 transition-transform" /></span>
                     </button>
-                    <button onClick={() => navigate('portfolio')} className="px-12 py-5 glass border border-white/10 rounded-full font-bold text-sm uppercase tracking-widest text-slate-200 hover:bg-white/10 transition-all shadow-sm">
+                    <button onClick={() => navigate('portfolio')} className="px-12 py-5 glass border border-white/10 rounded-full font-bold text-sm uppercase tracking-widest text-white hover:bg-white/10 transition-all shadow-sm">
                       View Our Work
                     </button>
                   </div>
                 </ScrollReveal>
 
-                <ScrollReveal delay={900} className="mt-20 flex flex-wrap justify-center gap-12 opacity-60 transition-all duration-700">
+                <ScrollReveal delay={900} className="mt-20 flex flex-wrap justify-center gap-12 opacity-80 transition-all duration-700">
                    <div className="flex flex-col items-center">
                       <span className="text-2xl font-bold font-futuristic text-white">100%</span>
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">Satisfaction</span>
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-white">Satisfaction</span>
                    </div>
                    <div className="flex flex-col items-center">
                       <span className="text-2xl font-bold font-futuristic text-white">Fast</span>
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">Delivery</span>
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-white">Delivery</span>
                    </div>
                    <div className="flex flex-col items-center">
                       <span className="text-2xl font-bold font-futuristic text-white">Modern</span>
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">Solutions</span>
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-white">Solutions</span>
                    </div>
                 </ScrollReveal>
               </div>
@@ -348,7 +348,7 @@ const App: React.FC = () => {
                       <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-4 block text-[10px]">Expertise</span>
                       <h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-6 uppercase tracking-tighter text-white">Our Services</h2>
                     </div>
-                    <button onClick={() => navigate('services')} className="px-8 py-4 glass border border-white/10 rounded-full text-slate-200 font-bold uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-white hover:text-black transition-all shadow-sm group">
+                    <button onClick={() => navigate('services')} className="px-8 py-4 glass border border-white/10 rounded-full text-white font-bold uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-white hover:text-black transition-all shadow-sm group">
                       Explore All Expertise <Icon name="ArrowRight" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -365,11 +365,11 @@ const App: React.FC = () => {
                         </div>
                         
                         <h3 className="text-2xl font-bold mb-6 font-futuristic uppercase tracking-tighter text-white">{service.title}</h3>
-                        <p className="text-slate-400 leading-relaxed mb-8 text-base font-light flex-grow">{service.description}</p>
+                        <p className="text-white leading-relaxed mb-8 text-base font-light flex-grow">{service.description}</p>
                         
                         <ul className="space-y-3 mb-10">
                            {service.features.slice(0, 3).map(f => (
-                             <li key={f} className="flex items-center gap-3 text-slate-300 text-xs font-medium">
+                             <li key={f} className="flex items-center gap-3 text-white text-xs font-medium">
                                 <Icon name="Check" className="w-4 h-4 text-purple-500" />
                                 <span>{f}</span>
                              </li>
@@ -390,7 +390,7 @@ const App: React.FC = () => {
                   <ScrollReveal direction="right">
                      <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-6 block text-[10px]">The Studio Advantage</span>
                      <h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-8 uppercase tracking-tighter text-white">Creative Meets <br/><span className="gradient-text animate-flow">Technical Excellence.</span></h2>
-                     <p className="text-slate-300 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-lg">
+                     <p className="text-white text-lg md:text-xl font-light leading-relaxed mb-10 max-w-lg">
                         We don't just build assets; we engineer digital legacies. Our blend of high-end aesthetics and clean, scalable code ensures your brand dominates the market.
                      </p>
                      <div className="grid grid-cols-2 gap-8">
@@ -402,8 +402,7 @@ const App: React.FC = () => {
                         ].map(item => (
                           <div key={item.t} className="space-y-2">
                              <h4 className="text-white font-bold font-futuristic uppercase text-sm tracking-tight">{item.t}</h4>
-                             {/* Fixed Visibility: Increased contrast to slate-200 */}
-                             <p className="text-slate-200 text-xs leading-relaxed">{item.d}</p>
+                             <p className="text-white text-xs leading-relaxed">{item.d}</p>
                           </div>
                         ))}
                      </div>
@@ -415,7 +414,7 @@ const App: React.FC = () => {
                               <Icon name="Target" className="w-16 h-16 text-black" />
                            </div>
                            <h4 className="text-3xl font-bold font-futuristic uppercase tracking-tighter text-white mb-4">Precision Engineering</h4>
-                           <p className="text-slate-200 text-sm max-w-xs mx-auto italic">"Crafting every pixel with a specific purpose for conversion."</p>
+                           <p className="text-white text-sm max-w-xs mx-auto italic">"Crafting every pixel with a specific purpose for conversion."</p>
                         </div>
                      </div>
                   </ScrollReveal>
@@ -435,10 +434,9 @@ const App: React.FC = () => {
                      {processSteps.map((step, i) => (
                        <ScrollReveal key={step.number} delay={i * 150}>
                           <div className="group relative glass p-10 rounded-[40px] border border-white/5 bg-white/5 hover:bg-white/10 hover:shadow-2xl transition-all">
-                             {/* Fixed Visibility: Higher contrast white/25 for background numbers */}
                              <span className="text-5xl font-bold font-futuristic text-white/25 absolute top-6 right-8 group-hover:text-purple-500/30 transition-all">{step.number}</span>
                              <h4 className="text-xl font-bold font-futuristic uppercase tracking-tighter mb-4 text-white">{step.title}</h4>
-                             <p className="text-slate-300 text-sm leading-relaxed">{step.desc}</p>
+                             <p className="text-white text-sm leading-relaxed">{step.desc}</p>
                           </div>
                        </ScrollReveal>
                      ))}
@@ -459,7 +457,7 @@ const App: React.FC = () => {
                     {TESTIMONIALS.map((t, i) => (
                       <ScrollReveal key={t.id} delay={i * 200}>
                         <div className="glass p-12 rounded-[40px] border border-white/5 flex flex-col h-full relative bg-white/5 shadow-xl">
-                           <p className="text-slate-200 text-lg leading-relaxed mb-12 flex-grow italic font-light">"{t.content}"</p>
+                           <p className="text-white text-lg leading-relaxed mb-12 flex-grow italic font-light">"{t.content}"</p>
                            <div className="flex items-center gap-6 border-t border-white/5 pt-10 mt-auto">
                               <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-xl object-cover shadow-2xl border border-white/10" />
                               <div>
@@ -479,7 +477,7 @@ const App: React.FC = () => {
                <div className="max-w-4xl mx-auto">
                   <ScrollReveal>
                     <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-10 tracking-tighter uppercase leading-[0.9] text-white">Let’s Create Something <br/>Powerful Together.</h2>
-                    <p className="text-xl md:text-2xl text-slate-400 mb-16 font-light max-w-2xl mx-auto leading-relaxed">Elevate your brand with elite digital execution. Our team is ready to launch.</p>
+                    <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Elevate your brand with elite digital execution. Our team is ready to launch.</p>
                     <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-xl hover:bg-purple-600 hover:text-white transition-all shadow-2xl uppercase tracking-widest transform hover:scale-105 active:scale-95">
                       Start Your Journey
                     </button>
@@ -496,7 +494,7 @@ const App: React.FC = () => {
                 <div className="mb-32 text-center">
                   <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-4 block text-[10px]">What We Do</span>
                   <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-10 uppercase tracking-tighter text-white">Services</h2>
-                  <p className="text-slate-400 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">We deliver high-end creative engineering that transforms businesses into digital powerhouses.</p>
+                  <p className="text-white text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">We deliver high-end creative engineering that transforms businesses into digital powerhouses.</p>
                 </div>
               </ScrollReveal>
 
@@ -512,11 +510,11 @@ const App: React.FC = () => {
                          </div>
                          <div className="py-6">
                             <h3 className="text-4xl md:text-6xl font-bold font-futuristic mb-8 uppercase tracking-tighter text-white">{s.title}</h3>
-                            <p className="text-slate-200 text-2xl mb-12 font-light leading-relaxed">{s.description}</p>
+                            <p className="text-white text-2xl mb-12 font-light leading-relaxed">{s.description}</p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                                <div>
-                                  <h5 className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-500 mb-6">Key Features</h5>
+                                  <h5 className="text-[10px] font-bold uppercase tracking-[0.4em] text-white mb-6">Key Features</h5>
                                   <ul className="space-y-4">
                                      {s.features.map(f => (
                                        <li key={f} className="flex items-center gap-4 text-white font-bold text-sm tracking-tight">
@@ -529,10 +527,10 @@ const App: React.FC = () => {
                                   </ul>
                                </div>
                                <div>
-                                  <h5 className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-500 mb-6">Core Benefits</h5>
+                                  <h5 className="text-[10px] font-bold uppercase tracking-[0.4em] text-white mb-6">Core Benefits</h5>
                                   <ul className="space-y-4">
                                      {s.benefits.map(b => (
-                                       <li key={b} className="flex items-center gap-4 text-slate-400 text-sm">
+                                       <li key={b} className="flex items-center gap-4 text-white text-sm">
                                           <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                                           {b}
                                        </li>
@@ -543,7 +541,7 @@ const App: React.FC = () => {
 
                             <div className="p-8 rounded-[32px] bg-white/5 border border-white/5 shadow-sm mb-12">
                                <h5 className="text-[9px] font-bold uppercase tracking-[0.4em] text-purple-500 mb-2">Ideal For</h5>
-                               <p className="text-slate-200 font-medium">{s.idealFor}</p>
+                               <p className="text-white font-medium">{s.idealFor}</p>
                             </div>
 
                             <button onClick={() => navigate('contact')} className="px-10 py-5 bg-white text-black rounded-full font-bold uppercase tracking-widest text-xs hover:bg-purple-600 hover:text-white transition-all shadow-xl">
@@ -572,7 +570,7 @@ const App: React.FC = () => {
                       <button 
                         key={cat}
                         onClick={() => setActiveCategory(cat as Category)}
-                        className={`px-8 py-3 rounded-[16px] text-[10px] font-bold uppercase tracking-[0.2em] transition-all transform active:scale-95 ${activeCategory === cat ? 'bg-white text-black shadow-2xl' : 'text-slate-500 hover:text-white hover:bg-white/5'}`}
+                        className={`px-8 py-3 rounded-[16px] text-[10px] font-bold uppercase tracking-[0.2em] transition-all transform active:scale-95 ${activeCategory === cat ? 'bg-white text-black shadow-2xl' : 'text-white hover:text-white hover:bg-white/5'}`}
                       >
                         {cat}
                       </button>
@@ -592,7 +590,7 @@ const App: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col justify-end p-12">
                         <span className="text-purple-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-4">{item.category}</span>
                         <h4 className="text-3xl font-bold font-futuristic mb-4 uppercase tracking-tighter text-white leading-tight">{item.title}</h4>
-                        <p className="text-white/60 text-xs line-clamp-2 font-light mb-6">{item.description}</p>
+                        <p className="text-white text-xs line-clamp-2 font-light mb-6">{item.description}</p>
                         <div className="w-12 h-12 glass border-none rounded-full flex items-center justify-center bg-white text-black transition-all">
                           <Icon name="ArrowRight" className="w-6 h-6" />
                         </div>
@@ -614,21 +612,21 @@ const App: React.FC = () => {
                     <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-4 block text-[10px]">Our Story</span>
                     <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white leading-[0.8]">About <br/><span className="text-purple-500">Visualix.</span></h2>
                     <div className="space-y-6">
-                       <p className="text-slate-100 text-2xl leading-relaxed font-light">
+                       <p className="text-white text-2xl leading-relaxed font-light">
                           Visualix Studio is a boutique creative lab specialized in high-end design, rapid development, and cinematic video editing.
                        </p>
-                       <p className="text-slate-300 text-lg leading-relaxed font-light">
+                       <p className="text-white text-lg leading-relaxed font-light">
                           Our philosophy centers on merging purely aesthetic artistry with robust engineering. We believe every pixel should serve a purpose, and every line of code should empower growth.
                        </p>
                     </div>
                     <div className="mt-12 grid grid-cols-2 gap-12 border-t border-white/5 pt-16">
                        <div>
                           <h4 className="text-[10px] font-bold uppercase tracking-[0.4em] text-purple-500 mb-4">Mission</h4>
-                          <p className="text-slate-300 text-sm font-light">To help businesses scale by delivering high-impact, elite digital experiences.</p>
+                          <p className="text-white text-sm font-light">To help businesses scale by delivering high-impact, elite digital experiences.</p>
                        </div>
                        <div>
                           <h4 className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-500 mb-4">Vision</h4>
-                          <p className="text-slate-300 text-sm font-light">To become the global standard for creative digital and video production.</p>
+                          <p className="text-white text-sm font-light">To become the global standard for creative digital and video production.</p>
                        </div>
                     </div>
                   </div>
@@ -655,7 +653,7 @@ const App: React.FC = () => {
                        ].map(v => (
                          <div key={v.t} className="space-y-4">
                             <h4 className="text-xl font-bold font-futuristic text-white uppercase tracking-tight">{v.t}</h4>
-                            <p className="text-slate-300 text-sm font-light leading-relaxed">{v.d}</p>
+                            <p className="text-white text-sm font-light leading-relaxed">{v.d}</p>
                          </div>
                        ))}
                     </div>
@@ -673,7 +671,7 @@ const App: React.FC = () => {
                   <div>
                     <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-6 block text-[10px]">Get In Touch</span>
                     <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white leading-[0.8]">Let’s Start <br/><span className="text-purple-600">Your Project.</span></h2>
-                    <p className="text-slate-300 text-2xl mb-16 max-w-lg font-light leading-relaxed">
+                    <p className="text-white text-2xl mb-16 max-w-lg font-light leading-relaxed">
                       Tell us about your idea and we'll bring it to life with elite design, development, and video production.
                     </p>
                     
@@ -683,7 +681,7 @@ const App: React.FC = () => {
                              <Icon name="Globe" className="w-7 h-7" />
                           </div>
                           <div>
-                             <h5 className="font-bold text-[10px] tracking-[0.5em] uppercase mb-1 text-slate-500">Email Inquiry</h5>
+                             <h5 className="font-bold text-[10px] tracking-[0.5em] uppercase mb-1 text-white">Email Inquiry</h5>
                              <p className="text-white text-xl font-light">hello@visualix.studio</p>
                           </div>
                        </div>
@@ -697,23 +695,23 @@ const App: React.FC = () => {
                             <Icon name="Check" className="w-12 h-12" />
                          </div>
                          <h3 className="text-4xl font-bold font-futuristic mb-4 uppercase tracking-tighter text-white">Transmission Sent</h3>
-                         <p className="text-slate-300 mb-10 text-lg">Thank you. One of our directors will reach out shortly.</p>
+                         <p className="text-white mb-10 text-lg">Thank you. One of our directors will reach out shortly.</p>
                          <button onClick={() => setFormStatus('idle')} className="px-10 py-4 glass border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all">New Brief</button>
                       </div>
                     ) : (
                       <>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                           <div className="space-y-2">
-                             <label className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em] ml-2">Your Name</label>
-                             <input required type="text" placeholder="Full Name" className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 focus:outline-none focus:border-purple-500 transition-all text-base text-white placeholder:text-slate-600" />
+                             <label className="text-[10px] font-bold text-white uppercase tracking-[0.3em] ml-2">Your Name</label>
+                             <input required type="text" placeholder="Full Name" className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 focus:outline-none focus:border-purple-500 transition-all text-base text-white placeholder:text-white/40" />
                           </div>
                           <div className="space-y-2">
-                             <label className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em] ml-2">Email Address</label>
-                             <input required type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 focus:outline-none focus:border-purple-500 transition-all text-base text-white placeholder:text-slate-600" />
+                             <label className="text-[10px] font-bold text-white uppercase tracking-[0.3em] ml-2">Email Address</label>
+                             <input required type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 focus:outline-none focus:border-purple-500 transition-all text-base text-white placeholder:text-white/40" />
                           </div>
                         </div>
                         <div className="space-y-2">
-                           <label className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em] ml-2">Service Needed</label>
+                           <label className="text-[10px] font-bold text-white uppercase tracking-[0.3em] ml-2">Service Needed</label>
                            <select className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 focus:outline-none focus:border-purple-500 transition-all text-base text-white appearance-none">
                               <option className="bg-black">E-commerce website</option>
                               <option className="bg-black">Web Development</option>
@@ -722,8 +720,8 @@ const App: React.FC = () => {
                            </select>
                         </div>
                         <div className="space-y-2">
-                           <label className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em] ml-2">Tell Us Your Idea</label>
-                           <textarea required placeholder="Briefly describe your vision and mission..." className="w-full h-44 bg-white/5 border border-white/5 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all resize-none text-base leading-relaxed text-white placeholder:text-slate-600" />
+                           <label className="text-[10px] font-bold text-white uppercase tracking-[0.3em] ml-2">Tell Us Your Idea</label>
+                           <textarea required placeholder="Briefly describe your vision and mission..." className="w-full h-44 bg-white/5 border border-white/5 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all resize-none text-base leading-relaxed text-white placeholder:text-white/40" />
                         </div>
                         <button className="w-full py-6 bg-white text-black rounded-2xl font-bold text-lg tracking-[0.2em] hover:bg-purple-600 hover:text-white transition-all transform active:scale-[0.98] uppercase shadow-2xl">
                           {formStatus === 'sending' ? 'Transmitting...' : 'Transmit Mission'}
@@ -752,32 +750,32 @@ const App: React.FC = () => {
                     <span className="text-[10px] tracking-[0.4em] uppercase text-purple-500 font-bold">Studio</span>
                   </div>
                 </div>
-                <p className="text-slate-500 text-xl max-w-sm mb-12 font-light leading-relaxed">
+                <p className="text-white text-xl max-w-sm mb-12 font-light leading-relaxed">
                   Boutique creative lab engineering high-end design, code, and cinematic video.
                 </p>
              </div>
              <div>
-                <h5 className="text-[11px] font-bold text-slate-600 uppercase tracking-[0.5em] mb-10">Navigation</h5>
-                <ul className="space-y-5 text-slate-400 font-bold text-xs tracking-[0.2em] uppercase">
+                <h5 className="text-[11px] font-bold text-white uppercase tracking-[0.5em] mb-10">Navigation</h5>
+                <ul className="space-y-5 text-white font-bold text-xs tracking-[0.2em] uppercase">
                    {navItems.map(item => (
                      <li key={item.id} onClick={() => navigate(item.id)} className="hover:text-purple-400 cursor-pointer transition-all">{item.name}</li>
                    ))}
                 </ul>
              </div>
              <div>
-                <h5 className="text-[11px] font-bold text-slate-600 uppercase tracking-[0.5em] mb-10">Services</h5>
-                <ul className="space-y-5 text-slate-400 font-bold text-xs tracking-[0.2em] uppercase">
+                <h5 className="text-[11px] font-bold text-white uppercase tracking-[0.5em] mb-10">Services</h5>
+                <ul className="space-y-5 text-white font-bold text-xs tracking-[0.2em] uppercase">
                    <li onClick={() => navigate('services')} className="hover:text-purple-400 cursor-pointer transition-all">E-commerce website</li>
                    <li onClick={() => navigate('services')} className="hover:text-purple-400 cursor-pointer transition-all">Web Development</li>
                    <li onClick={() => navigate('services')} className="hover:text-purple-400 cursor-pointer transition-all">Video Editing</li>
                 </ul>
              </div>
           </div>
-          <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 opacity-60">
-            <p className="text-[10px] text-slate-500 tracking-[0.5em] font-bold uppercase">© 2024 Visualix Studio. Built for Digital Dominance.</p>
+          <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 opacity-80">
+            <p className="text-[10px] text-white tracking-[0.5em] font-bold uppercase">© 2024 Visualix Studio. Built for Digital Dominance.</p>
             <div className="flex gap-6">
               {['Instagram', 'Twitter', 'Dribbble'].map(s => (
-                <a key={s} href="#" className="w-10 h-10 glass border-none rounded-xl flex items-center justify-center text-slate-500 hover:text-purple-600 bg-white/5 shadow-2xl transition-all group">
+                <a key={s} href="#" className="w-10 h-10 glass border-none rounded-xl flex items-center justify-center text-white hover:text-purple-600 bg-white/5 shadow-2xl transition-all group">
                    <Icon name="Share2" className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
               ))}
