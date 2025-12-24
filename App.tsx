@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { SERVICES, PORTFOLIO_ITEMS, TESTIMONIALS } from './constants';
-import { Category, PortfolioItem, Service } from './types';
+import { SERVICES, PORTFOLIO_ITEMS, TESTIMONIALS } from './constants.tsx';
+import { Category, PortfolioItem, Service } from './types.ts';
 
 // --- Premium Icons ---
 const Icon = ({ name, className = "w-6 h-6" }: { name: string; className?: string }) => {
@@ -401,8 +401,8 @@ const App: React.FC = () => {
                         ].map(item => (
                           <div key={item.t} className="space-y-2">
                              <h4 className="text-white font-bold font-futuristic uppercase text-sm tracking-tight">{item.t}</h4>
-                             {/* Fixed Visibility: Increased brightness of description text */}
-                             <p className="text-slate-400 text-xs leading-relaxed">{item.d}</p>
+                             {/* Fixed Visibility: Increased contrast to slate-200 */}
+                             <p className="text-slate-200 text-xs leading-relaxed">{item.d}</p>
                           </div>
                         ))}
                      </div>
@@ -414,7 +414,7 @@ const App: React.FC = () => {
                               <Icon name="Target" className="w-16 h-16 text-black" />
                            </div>
                            <h4 className="text-3xl font-bold font-futuristic uppercase tracking-tighter text-white mb-4">Precision Engineering</h4>
-                           <p className="text-slate-300 text-sm max-w-xs mx-auto italic">"Crafting every pixel with a specific purpose for conversion."</p>
+                           <p className="text-slate-200 text-sm max-w-xs mx-auto italic">"Crafting every pixel with a specific purpose for conversion."</p>
                         </div>
                      </div>
                   </ScrollReveal>
@@ -434,8 +434,8 @@ const App: React.FC = () => {
                      {processSteps.map((step, i) => (
                        <ScrollReveal key={step.number} delay={i * 150}>
                           <div className="group relative glass p-10 rounded-[40px] border border-white/5 bg-white/5 hover:bg-white/10 hover:shadow-2xl transition-all">
-                             {/* Fixed Visibility: Increased opacity of background numbers */}
-                             <span className="text-5xl font-bold font-futuristic text-white/10 absolute top-6 right-8 group-hover:text-purple-500/20 transition-all">{step.number}</span>
+                             {/* Fixed Visibility: Higher contrast white/25 for background numbers */}
+                             <span className="text-5xl font-bold font-futuristic text-white/25 absolute top-6 right-8 group-hover:text-purple-500/30 transition-all">{step.number}</span>
                              <h4 className="text-xl font-bold font-futuristic uppercase tracking-tighter mb-4 text-white">{step.title}</h4>
                              <p className="text-slate-300 text-sm leading-relaxed">{step.desc}</p>
                           </div>
