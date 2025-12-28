@@ -10,13 +10,28 @@ export interface Service {
   idealFor: string;
 }
 
+export interface PricingPlan {
+  name: string;
+  price: string;
+  features: string[];
+  cta: string;
+  popular?: boolean;
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface PortfolioItem {
   id: string;
   title: string;
-  category: 'E-commerce' | 'Development' | 'Video Editing' | 'Branding';
+  category: 'E-commerce' | 'Development' | 'Web Design' | 'Branding';
   imageUrl: string;
   description?: string;
   outcome?: string;
+  link?: string;
+  tags?: string[];
 }
 
-export type Category = 'All' | 'E-commerce' | 'Development' | 'Video Editing' | 'Branding';
+export type Category = 'All' | 'E-commerce' | 'Development' | 'Web Design' | 'Branding';

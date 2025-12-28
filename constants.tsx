@@ -1,137 +1,211 @@
 
-import { Service, PortfolioItem } from './types';
+import { Service, PortfolioItem, PricingPlan, FAQItem } from './types';
 
 export const SERVICES: Service[] = [
   {
+    id: 'web-design',
+    title: 'Web Design',
+    description: 'Modern, user-focused website designs crafted to deliver seamless user experiences and drive conversions.',
+    icon: 'Layout',
+    color: 'from-pink-500 to-rose-500',
+    features: [
+      'UI/UX Design',
+      'Mobile-First Responsive Layouts',
+      'Brand-Focused Visual Design',
+      'Conversion-Optimized Interfaces'
+    ],
+    benefits: [
+      'Stunning Visual Identity',
+      'High User Retention',
+      'Intuitive Navigation'
+    ],
+    idealFor: 'Brands looking to establish a premium and professional online visual presence.'
+  },
+  {
     id: 'web-dev',
     title: 'Web Development',
-    description: 'Clean, scalable, and powerful codebases built for performance, security, and growth.',
+    description: 'Clean, scalable, and secure codebases engineered for speed, performance, and long-term growth.',
     icon: 'Code',
     color: 'from-blue-500 to-cyan-500',
     features: [
-      'Frontend (React/Next.js)',
+      'Frontend Development (React / Next.js)',
       'Backend & API Integration',
-      'Fast Performance & SEO Optimization',
-      'CMS Integration (Headless & Traditional)'
+      'Performance Optimization & Core Web Vitals',
+      'SEO-Friendly Architecture'
     ],
     benefits: [
-      'Scalable Solutions for Growth',
+      'Scalable Infrastructure',
       'Superior Site Speed',
       'Enhanced Security Protocols'
     ],
-    idealFor: 'Startups and enterprises requiring robust, high-performance web applications.'
+    idealFor: 'Businesses needing robust, high-performance web applications.'
   },
   {
     id: 'ecommerce',
-    title: 'E-commerce website',
-    description: 'High-performance online stores designed for conversion, featuring seamless payments and intuitive product management.',
+    title: 'E-Commerce Development',
+    description: 'High-performance online stores built to maximize sales through smooth checkout flows and scalable infrastructure.',
     icon: 'ShoppingCart',
-    color: 'from-purple-500 to-blue-500',
+    color: 'from-purple-500 to-indigo-500',
     features: [
       'Payment Gateway Integration',
-      'Inventory Management Systems',
+      'Inventory & Order Management',
       'Conversion Rate Optimization (CRO)',
-      'Mobile-First Shopping Experience'
+      'Secure & Scalable Store Setup'
     ],
     benefits: [
-      'Scalable Online Revenue',
-      'Seamless Customer Experience',
+      'Maximize Sales Revenue',
+      'Seamless Checkout Experience',
       'Automated Business Operations'
     ],
-    idealFor: 'Retailers and brands ready to scale their global sales.'
+    idealFor: 'Retailers and brands ready to scale their global digital sales.'
   },
   {
-    id: 'video-editing',
-    title: 'Video Editing',
-    description: 'Cinematic storytelling optimized for social platforms and professional brand showcases.',
-    icon: 'Video',
-    color: 'from-cyan-500 to-purple-500',
+    id: 'hosting',
+    title: 'Hosting & Domain',
+    description: 'Reliable cloud hosting and domain management to keep your business online 24/7 with zero friction.',
+    icon: 'Globe',
+    color: 'from-green-500 to-emerald-500',
     features: [
-      'Social Media Reels & Shorts',
-      'Cinematic Color Correction',
-      'Advanced Motion Graphics',
-      'Sound Design & Enhancement'
+      'High-Speed Cloud Hosting',
+      'Domain Registration & DNS',
+      'SSL Certificate Implementation',
+      'Professional Email Setup'
     ],
     benefits: [
-      'Captivating Audience Engagement',
-      'Platform-Optimized Content',
-      'Viral Potential Storytelling'
+      '99.9% Uptime Guarantee',
+      'Enterprise-Grade Security',
+      'Seamless Renewals'
     ],
-    idealFor: 'Creators and brands looking to dominate social media with high-quality video.'
+    idealFor: 'Businesses wanting a hands-off approach to their technical infrastructure.'
+  },
+  {
+    id: 'maintenance',
+    title: 'Maintenance & Support',
+    description: 'Ongoing technical care to ensure your website remains secure, updated, and high-performing.',
+    icon: 'Shield',
+    color: 'from-orange-500 to-amber-500',
+    features: [
+      'Regular Security Patching',
+      'Automated Backups',
+      'Performance Audits',
+      'Uptime Monitoring'
+    ],
+    benefits: [
+      'Peace of Mind',
+      'Consistent Performance',
+      'Priority Support Access'
+    ],
+    idealFor: 'Any website owner who values long-term stability and security.'
+  },
+  {
+    id: 'subscriptions',
+    title: 'Monthly Subscriptions',
+    description: 'All-in-one monthly plans covering design, development, and ongoing updates without large upfront costs.',
+    icon: 'CreditCard',
+    color: 'from-cyan-500 to-blue-500',
+    features: [
+      'Continuous Improvements',
+      'Monthly Design Refresh',
+      'Dedicated Support Hours',
+      'Hosting Assistance Included'
+    ],
+    benefits: [
+      'Flexible Cash Flow',
+      'Unlimited Growth Potential',
+      'No Large Initial Investment'
+    ],
+    idealFor: 'Startups and fast-growing brands who need a dedicated digital partner.'
   }
 ];
 
+export const PRICING: Record<string, PricingPlan[]> = {
+  'web-design': [
+    { name: 'Basic Website', price: 'From $199', features: ['Up to 5 pages', 'Responsive design', 'Modern UI/UX', 'Basic SEO setup', 'Contact form'], cta: 'Get Started' },
+    { name: 'Standard Website', price: 'From $399', features: ['Up to 10 pages', 'Custom UI/UX', 'Mobile-first design', 'SEO-friendly structure', 'Speed optimization'], cta: 'Get Started', popular: true },
+    { name: 'Premium Website', price: 'From $699', features: ['Unlimited pages', 'Fully custom design', 'Advanced UI/UX', 'Conversion-focused layout', 'Performance optimization'], cta: 'Get Started' }
+  ],
+  'web-dev': [
+    { name: 'Frontend Dev', price: 'From $249', features: ['HTML, CSS, JavaScript', 'Pixel-perfect implementation', 'React/Next.js specialized', 'Fast & clean code'], cta: 'Get Started' },
+    { name: 'Full-Stack Dev', price: 'From $499', features: ['Frontend + backend', 'Database integration', 'Secure & scalable setup', 'Deployment support'], cta: 'Get Started', popular: true },
+    { name: 'Custom App', price: 'Custom', features: ['Tailored solution', 'Advanced features', 'API integrations', 'Long-term scalability'], cta: 'Request a Quote' }
+  ],
+  'ecommerce': [
+    { name: 'Starter Store', price: 'From $399', features: ['Up to 20 products', 'Payment gateway integration', 'Mobile-responsive store', 'Basic SEO'], cta: 'Get Started' },
+    { name: 'Growth Store', price: 'From $699', features: ['Unlimited products', 'Custom store design', 'Inventory & order management', 'Conversion optimization'], cta: 'Get Started', popular: true },
+    { name: 'Enterprise Store', price: 'Custom', features: ['Fully custom solution', 'Advanced integrations', 'High-performance & security', 'Scalable architecture'], cta: 'Request a Quote' }
+  ],
+  'hosting': [
+    { name: 'Hosting Setup', price: '$49 / yr', features: ['Hosting configuration', 'Performance optimization', 'Security setup'], cta: 'Select Plan' },
+    { name: 'Domain Registration', price: '$15 / yr', features: ['Domain registration', 'DNS setup', 'Email config support'], cta: 'Select Plan' },
+    { name: 'Domain Bundle', price: '$79 / yr', features: ['Domain included', 'High-speed hosting', 'SSL certificate', 'Priority Support'], cta: 'Select Plan', popular: true }
+  ],
+  'maintenance': [
+    { name: 'Basic Care', price: '$29 / mo', features: ['Monthly backups', 'Security monitoring', 'Minor bug fixes', 'Uptime monitoring'], cta: 'Subscribe' },
+    { name: 'Standard Care', price: '$59 / mo', features: ['Everything in Basic', 'Monthly updates', 'Performance optimization', 'Content updates (limited)'], cta: 'Subscribe', popular: true },
+    { name: 'Premium Care', price: '$99 / mo', features: ['Everything in Standard', 'Priority support', 'Advanced security', 'Unlimited content updates'], cta: 'Subscribe' }
+  ],
+  'subscriptions': [
+    { name: 'Website Sub', price: '$99 / mo', features: ['Design & development', 'Ongoing updates', 'Hosting assistance', 'Support included'], cta: 'Subscribe' },
+    { name: 'E-Commerce Sub', price: '$149 / mo', features: ['Store development', 'Monthly updates', 'Product optimization', 'Priority support'], cta: 'Subscribe', popular: true },
+    { name: 'Custom Sub', price: 'Custom', features: ['Tailored services', 'Dedicated support', 'Scalable solutions', 'Unlimited iterations'], cta: 'Contact Us' }
+  ]
+};
+
+export const FAQS: Record<string, FAQItem[]> = {
+  'web-design': [
+    { question: 'How long does web design take?', answer: 'Our standard timeline is 5-7 business days, though larger projects may take up to 2 weeks for the initial phase.' },
+    { question: 'Is my website mobile responsive?', answer: 'Yes, every design we produce is 100% mobile responsive and tested across all screen sizes.' },
+    { question: 'How many revisions are included?', answer: 'We offer multiple revision rounds depending on the plan to ensure you are completely satisfied with the visual identity.' },
+    { question: 'Can I edit the content myself later?', answer: 'Absolutely. We typically build using CMS tools like Sanity, Strapi, or WordPress so you can manage your own content easily.' }
+  ],
+  'web-dev': [
+    { question: 'Which technologies do you use?', answer: 'We specialize in modern stacks including React, Next.js, TypeScript, Tailwind CSS, and various headless CMS options.' },
+    { question: 'Is the website SEO-optimized?', answer: 'Yes, technical SEO is baked into our code, including proper meta tags, semantic HTML, and lightning-fast performance.' },
+    { question: 'Can the website scale in the future?', answer: 'We build with scalability in mind. Our code architecture allows adding new features or handling higher traffic without a complete rebuild.' }
+  ],
+  'ecommerce': [
+    { question: 'Which payment gateways do you support?', answer: 'We support all major gateways like Stripe, PayPal, Apple Pay, and Google Pay, as well as local regional providers.' },
+    { question: 'Is the store secure?', answer: 'Security is our top priority. We implement SSL, secure payment tokens, and follow PCI compliance best practices.' },
+    { question: 'Can I manage products myself?', answer: 'Yes, we provide an intuitive dashboard where you can add, remove, and update products and categories at any time.' }
+  ],
+  'hosting': [
+    { question: 'How reliable is your hosting?', answer: 'We use premium cloud infrastructure (AWS/Vercel) to guarantee 99.9% uptime for all client websites.' },
+    { question: 'Do I get an SSL certificate?', answer: 'Yes, all our hosting and bundle plans include a free SSL certificate to ensure your site is secure.' },
+    { question: 'Can I use an existing domain?', answer: 'Yes, we can handle the technical DNS configuration to point your existing domain to our high-speed servers.' }
+  ],
+  'maintenance': [
+    { question: 'Is maintenance required?', answer: 'While not mandatory, regular maintenance is highly recommended to protect against security vulnerabilities and ensure long-term performance.' },
+    { question: 'Can I upgrade my plan later?', answer: 'Yes, you can upgrade or downgrade your maintenance plan at any time to suit your growing business needs.' },
+    { question: 'Do you offer emergency support?', answer: 'Priority emergency support is included in our Standard and Premium care plans for immediate assistance.' }
+  ],
+  'subscriptions': [
+    { question: 'Is there a long-term contract?', answer: 'No, all our subscription plans are month-to-month, allowing you to cancel at any time.' },
+    { question: 'What’s included in updates?', answer: 'Updates cover design tweaks, text/image changes, performance improvements, and new feature small additions.' },
+    { question: 'Can I cancel anytime?', answer: 'Yes, our subscription model is built on trust and value. You are free to stop the service whenever you wish.' }
+  ]
+};
+
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   { 
-    id: 'p1', 
-    title: 'Nexa FinTech Dashboard', 
-    category: 'Development', 
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-    description: 'A robust financial monitoring system built with React and real-time data streaming.',
-    outcome: 'Improved user data tracking efficiency by 45%.'
-  },
-  { 
-    id: 'p2', 
-    title: 'Zenith Watch E-Shop', 
+    id: 'p-nova', 
+    title: 'Nova Market', 
     category: 'E-commerce', 
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
-    description: 'A luxury e-commerce experience emphasizing minimal aesthetics and seamless checkout.',
-    outcome: 'Increased conversion rate by 22% in the first month.'
+    imageUrl: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200',
+    description: 'A cutting-edge multi-vendor e-commerce platform built for high-scale retail operations.',
+    tags: ['Next.js', 'TypeScript', 'Prisma', 'Stripe']
   },
   { 
-    id: 'p3', 
-    title: 'Tech Summit 2024 Reel', 
-    category: 'Video Editing', 
-    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
-    description: 'High-energy promotional video with custom motion tracking and sound design.',
-    outcome: 'Reached 500k+ views across social media platforms.'
-  },
-  { 
-    id: 'p4', 
-    title: 'Venture SaaS Platform', 
-    category: 'Development', 
-    imageUrl: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800',
-    description: 'End-to-end web application development for a complex project management tool.',
-    outcome: 'Scaled to handle 10k monthly active users.'
-  },
-  { 
-    id: 'p5', 
-    title: 'Urban Fit Campaign', 
-    category: 'Video Editing', 
-    imageUrl: 'https://images.unsplash.com/photo-1492619334760-22c02315629c?auto=format&fit=crop&q=80&w=800',
-    description: 'Series of short-form content for fitness brand awareness.',
-    outcome: 'Boosted brand engagement by 300% on TikTok.'
-  },
-  { 
-    id: 'p6', 
-    title: 'Aetheria Digital Identity', 
-    category: 'Branding', 
-    imageUrl: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800',
-    description: 'A comprehensive branding package including UI/UX and visual assets.',
-    outcome: 'Successfully launched and secured $2M in seed funding.'
+    id: 'p-alnader', 
+    title: 'Alnader Furniture', 
+    category: 'E-commerce', 
+    imageUrl: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1200',
+    description: 'Bespoke furniture luxury e-commerce platform blending aesthetics with navigation.',
+    tags: ['React', 'Tailwind CSS', 'Framer Motion']
   }
 ];
 
 export const TESTIMONIALS = [
-  {
-    id: 1,
-    name: "Elena Rodriguez",
-    role: "CEO, NexaCorp",
-    content: "Visualix didn't just design a website; they architected a digital identity that perfectly captures our brand's spirit. Their technical expertise is second to none.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
-  },
-  {
-    id: 2,
-    name: "Marcus Thorne",
-    role: "Founder, Zenith Watches",
-    content: "The attention to detail in their video work is frighteningly good. Every transition feels purposeful. We have seen a massive surge in engagement.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100"
-  },
-  {
-    id: 3,
-    name: "Sarah Chen",
-    role: "Marketing Director, Venture",
-    content: "Fast, reliable, and modern. Visualix delivered our SaaS platform ahead of schedule and with a level of polish that exceeded our expectations.",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100"
-  }
+  { id: 1, name: "Ahmed R.", role: "CEO, Retail Hub", content: "Visualix Studio delivered a fast, modern website that exceeded our expectations. Our sales increased immediately.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" },
+  { id: 2, name: "Sarah J.", role: "Founder, GreenSpace", content: "The design team understood our brand instantly. The UI is gorgeous and incredibly user-friendly.", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" },
+  { id: 3, name: "Kevin M.", role: "CTO, Fintech Pro", content: "Technical excellence at its best. The Next.js integration is flawless and the site is lightning fast.", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" }
 ];
