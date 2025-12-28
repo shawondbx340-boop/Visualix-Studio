@@ -20,7 +20,7 @@ const Icon = ({ name, className = "w-6 h-6" }: { name: string; className?: strin
     Code: <><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></>,
     Layout: <><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18"/><path d="M9 21V9"/></>,
     ShoppingCart: <><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></>,
-    Instagram: <rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />,
+    Instagram: <><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></>,
     Twitter: <path d="M22 4s-1 2.18-4 3.5c0 0-1.24 7.28-9 11.5 0 0 5.4-2.18 5.4-2.18l-3.2 2.18c0 0-2.8-1.5-3.6-2.7C4 16 2.24 14.5 1 13.5l3.2-1c0 0-3.6-4-3.6-7 0 0 1.2 2.3 4.2 2.3 0 0-3-5.3-1-7 0 0 1.8 3.5 6.6 3.5 0 0 .5-5.3 5-5.3 2.14 0 4.1.88 5.4 2.3 0 0 2-.5 3-1.5 0 0-1 2-2 3 0 0-1.5-1 2.5-1.5z" />,
     LinkedIn: <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></>,
     MessageCircle: <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.3 8.38 8.38 0 0 1 3.8.9L21 3z" />,
@@ -73,18 +73,18 @@ const ScrollReveal: React.FC<{ children: React.ReactNode; className?: string; de
 const FAQAccordionItem: React.FC<{ faq: FAQType }> = ({ faq }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="glass rounded-3xl border border-white/5 hover:border-white/20 transition-all overflow-hidden">
+    <div className="glass rounded-3xl border border-white/10 hover:border-white/30 transition-all overflow-hidden bg-white/[0.02]">
       <button 
         onClick={() => setIsOpen(!isOpen)} 
         className="w-full text-left p-8 flex justify-between items-center transition-all group"
       >
-        <h5 className="text-xl font-bold text-white pr-8">{faq.question}</h5>
-        <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+        <h5 className="text-xl font-bold text-white pr-8 leading-tight">{faq.question}</h5>
+        <div className={`transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}>
           <Icon name="ChevronDown" className="w-6 h-6 text-purple-400" />
         </div>
       </button>
-      <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100 pb-8 px-8' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <p className="text-white text-lg font-light leading-relaxed border-t border-white/5 pt-6">
+      <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[800px] opacity-100 pb-8 px-8' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <p className="text-white text-lg font-light leading-relaxed border-t border-white/10 pt-6">
           {faq.answer}
         </p>
       </div>
@@ -136,7 +136,7 @@ const App: React.FC = () => {
       </a>
 
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-white/5 py-4 shadow-lg' : 'py-8 bg-transparent'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-white/10 py-4 shadow-lg' : 'py-8 bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div onClick={() => navigate('home')} className="cursor-pointer flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl glow-purple overflow-hidden flex items-center justify-center bg-black">
@@ -208,7 +208,7 @@ const App: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {SERVICES.slice(0,3).map((s, i) => (
                     <ScrollReveal key={s.id} delay={i * 150}>
-                      <div className="glass p-12 rounded-[40px] border border-white/5 hover:border-purple-500/50 transition-all group h-full flex flex-col bg-white/5 shadow-2xl">
+                      <div className="glass p-12 rounded-[40px] border border-white/10 hover:border-purple-500/50 transition-all group h-full flex flex-col bg-white/5 shadow-2xl">
                         <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-10 shadow-2xl`}>
                           <Icon name={s.icon} className="w-10 h-10 text-white" />
                         </div>
@@ -283,12 +283,12 @@ const App: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {TESTIMONIALS.map((t, i) => (
                       <ScrollReveal key={t.id} delay={i * 200}>
-                        <div className="glass p-12 rounded-[40px] border border-white/5 h-full flex flex-col shadow-xl bg-white/5">
+                        <div className="glass p-12 rounded-[40px] border border-white/10 h-full flex flex-col shadow-xl bg-white/5">
                            <div className="flex text-yellow-500 mb-8">
                               {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
                            </div>
                            <p className="text-white text-lg leading-relaxed mb-12 flex-grow italic">"{t.content}"</p>
-                           <div className="flex items-center gap-6 pt-10 border-t border-white/5">
+                           <div className="flex items-center gap-6 pt-10 border-t border-white/10">
                               <img src={t.avatar} className="w-14 h-14 rounded-xl object-cover" alt="" />
                               <div>
                                  <h4 className="font-bold uppercase tracking-widest text-sm text-white">{t.name}</h4>
@@ -303,7 +303,7 @@ const App: React.FC = () => {
             </section>
 
             {/* Global CTA */}
-            <section className="py-40 px-6 text-center border-t border-white/5">
+            <section className="py-40 px-6 text-center border-t border-white/10">
                <ScrollReveal>
                  <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-10 tracking-tighter uppercase leading-[0.9] text-white">Ready to Start Your Project?</h2>
                  <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Let’s build a high-performing website that grows your business. Partner with Visualix Studio today.</p>
@@ -354,14 +354,14 @@ const App: React.FC = () => {
                        <h4 className="text-xl font-bold font-futuristic uppercase tracking-[0.4em] mb-12 text-center text-white">{s.title} Plans</h4>
                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                           {PRICING[s.id]?.map((p) => (
-                            <div key={p.name} className={`glass p-12 rounded-[40px] border ${p.popular ? 'border-purple-500/50 scale-105 shadow-2xl bg-white/[0.03]' : 'border-white/5'} transition-all hover:bg-white/5 relative flex flex-col`}>
+                            <div key={p.name} className={`glass p-12 rounded-[40px] border ${p.popular ? 'border-purple-500/50 scale-105 shadow-2xl bg-white/[0.03]' : 'border-white/10'} transition-all hover:bg-white/5 relative flex flex-col`}>
                                {p.popular && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-600 px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white shadow-lg">Most Popular</span>}
                                <h5 className="text-xl font-bold font-futuristic uppercase text-white mb-2">{p.name}</h5>
                                <p className="text-3xl font-bold gradient-text mb-8">{p.price}</p>
                                <ul className="space-y-4 mb-12 flex-grow">
                                   {p.features.map(f => <li key={f} className="text-sm text-white flex items-center gap-3"><Icon name="Check" className="w-4 h-4 text-purple-400" /> {f}</li>)}
                                </ul>
-                               <button onClick={() => navigate('contact')} className={`w-full py-4 rounded-2xl font-bold uppercase tracking-widest text-xs transition-all ${p.popular ? 'bg-white text-black hover:bg-purple-600 hover:text-white' : 'glass border border-white/10 text-white hover:bg-white hover:text-black'}`}>
+                               <button onClick={() => navigate('contact')} className={`w-full py-4 rounded-2xl font-bold uppercase tracking-widest text-xs transition-all ${p.popular ? 'bg-white text-black hover:bg-purple-600 hover:text-white' : 'glass border border-white/20 text-white hover:bg-white hover:text-black'}`}>
                                   {p.cta}
                                </button>
                             </div>
@@ -369,7 +369,7 @@ const App: React.FC = () => {
                        </div>
                     </div>
 
-                    {/* Enhanced FAQ Section */}
+                    {/* FAQ Accordion Section */}
                     <div className="max-w-4xl mx-auto">
                        <div className="text-center mb-12">
                           <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-4 block text-[10px]">Answers</span>
@@ -417,7 +417,7 @@ const App: React.FC = () => {
               {/* Vision & Mission */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-40">
                  <ScrollReveal direction="right" delay={100}>
-                    <div className="glass p-16 rounded-[48px] border border-white/5 bg-white/5 h-full">
+                    <div className="glass p-16 rounded-[48px] border border-white/10 bg-white/5 h-full">
                        <span className="text-purple-500 font-bold uppercase tracking-[0.4em] mb-6 block text-[10px]">Strategic Path</span>
                        <h3 className="text-4xl font-bold font-futuristic mb-8 uppercase text-white">Our Vision</h3>
                        <p className="text-white text-xl font-light leading-relaxed">
@@ -426,7 +426,7 @@ const App: React.FC = () => {
                     </div>
                  </ScrollReveal>
                  <ScrollReveal direction="left" delay={200}>
-                    <div className="glass p-16 rounded-[48px] border border-white/5 bg-white/5 h-full">
+                    <div className="glass p-16 rounded-[48px] border border-white/10 bg-white/5 h-full">
                        <span className="text-purple-500 font-bold uppercase tracking-[0.4em] mb-6 block text-[10px]">Core Purpose</span>
                        <h3 className="text-4xl font-bold font-futuristic mb-8 uppercase text-white">Our Mission</h3>
                        <p className="text-white text-xl font-light leading-relaxed">
@@ -448,7 +448,7 @@ const App: React.FC = () => {
                          'Performance & SEO Optimization',
                          'Ongoing Support & Maintenance'
                        ].map(item => (
-                         <div key={item} className="flex items-center gap-6 p-6 glass rounded-2xl border border-white/5 hover:border-purple-500/30 transition-all">
+                         <div key={item} className="flex items-center gap-6 p-6 glass rounded-2xl border border-white/10 hover:border-purple-500/30 transition-all bg-white/[0.02]">
                             <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0"><Icon name="Check" className="w-5 h-5 text-purple-400" /></div>
                             <span className="text-white font-medium text-lg uppercase tracking-widest text-[12px]">{item}</span>
                          </div>
@@ -465,7 +465,7 @@ const App: React.FC = () => {
                          { t: 'Scaleable Pricing', d: 'Affordable for startups and growing businesses' },
                          { t: 'Infinite Support', d: 'Long-term support beyond project completion' }
                        ].map(item => (
-                         <div key={item.t} className="p-8 glass rounded-3xl border border-white/5 bg-white/5">
+                         <div key={item.t} className="p-8 glass rounded-3xl border border-white/10 bg-white/5 hover:bg-white/[0.08] transition-all">
                             <h4 className="text-white font-bold font-futuristic uppercase text-sm mb-2">{item.t}</h4>
                             <p className="text-white text-sm leading-relaxed">{item.d}</p>
                          </div>
@@ -488,7 +488,7 @@ const App: React.FC = () => {
                       { s: '05', t: 'Support', d: 'Ongoing maintenance and strategic improvements.' }
                     ].map((step, i) => (
                       <ScrollReveal key={step.s} delay={i * 100}>
-                         <div className="relative glass p-10 rounded-[40px] border border-white/5 bg-white/5 h-full group hover:bg-white/10 transition-all">
+                         <div className="relative glass p-10 rounded-[40px] border border-white/10 bg-white/5 h-full group hover:bg-white/10 transition-all">
                             <span className="text-5xl font-bold font-futuristic text-white/10 absolute top-6 right-8 group-hover:text-purple-500/20 transition-all">{step.s}</span>
                             <h4 className="text-xl font-bold font-futuristic uppercase tracking-tighter mb-4 text-white">{step.t}</h4>
                             <p className="text-white text-xs leading-relaxed">{step.d}</p>
@@ -499,7 +499,7 @@ const App: React.FC = () => {
               </section>
 
               {/* Trust Badges */}
-              <section className="mb-40 py-24 bg-white/[0.02] border-y border-white/5 rounded-[64px]">
+              <section className="mb-40 py-24 bg-white/[0.02] border-y border-white/10 rounded-[64px]">
                  <ScrollReveal className="text-center mb-20 px-6">
                     <h2 className="text-3xl md:text-5xl font-bold font-futuristic mb-6 uppercase tracking-tighter text-white">Trusted. Reliable. Proven.</h2>
                     <p className="text-white max-w-xl mx-auto uppercase tracking-widest text-[10px] font-bold">Building long-lasting partnerships through quality, transparency, and trust.</p>
@@ -523,41 +523,8 @@ const App: React.FC = () => {
                  </div>
               </section>
 
-              {/* Global Section */}
-              <ScrollReveal>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center mb-40">
-                  <div className="order-2 lg:order-1 rounded-[48px] overflow-hidden border border-white/10 relative h-[600px] bg-slate-900 shadow-2xl group">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-1000" alt="" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-12">
-                       <h4 className="text-2xl font-futuristic font-bold text-white uppercase mb-4 tracking-widest">Global Reach</h4>
-                       <p className="text-white font-light">Supporting international markets with high-fidelity digital solutions.</p>
-                    </div>
-                  </div>
-                  <div className="order-1 lg:order-2">
-                    <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-6 block text-[10px]">Serving Clients Worldwide</span>
-                    <h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white">Remote Excellence.</h2>
-                    <p className="text-white text-2xl leading-relaxed font-light mb-12">
-                      Visualix Studio collaborates with clients globally through seamless remote workflows, online meetings, and flexible time-zone support—ensuring smooth communication and consistent project delivery.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                       {[
-                         'Remote Collaboration',
-                         'Online Consultations',
-                         'Time-zone Flexibility',
-                         'Global Client Support'
-                       ].map(item => (
-                         <div key={item} className="flex items-center gap-4 text-white font-bold uppercase text-[10px] tracking-widest">
-                            <div className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center"><Icon name="Globe" className="w-5 h-5 text-purple-400" /></div>
-                            {item}
-                         </div>
-                       ))}
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-
               {/* Final CTA */}
-              <section className="text-center py-40 bg-[#080808] rounded-[64px] border border-white/5">
+              <section className="text-center py-40 bg-[#080808] rounded-[64px] border border-white/10">
                 <ScrollReveal>
                   <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-10 tracking-tighter uppercase leading-[0.9] text-white">Let’s Build Something <br/><span className="gradient-text">Great Together.</span></h2>
                   <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Whether you’re a startup, small business, or growing brand, Visualix Studio is ready to help you create a powerful digital presence.</p>
@@ -581,13 +548,13 @@ const App: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {PORTFOLIO_ITEMS.map((item, idx) => (
                   <ScrollReveal key={item.id} delay={idx * 150}>
-                    <div className="group relative glass rounded-[48px] overflow-hidden border border-white/5 aspect-[4/3] shadow-2xl cursor-pointer">
+                    <div className="group relative glass rounded-[48px] overflow-hidden border border-white/10 aspect-[4/3] shadow-2xl cursor-pointer">
                        <img src={item.imageUrl} className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-40 transition-all duration-1000" alt="" />
                        <div className="absolute inset-0 flex flex-col justify-end p-12 text-white">
                           <span className="text-purple-500 font-bold uppercase tracking-[0.4em] mb-4 text-[10px]">{item.category}</span>
-                          <h4 className="text-4xl font-bold font-futuristic mb-6 uppercase tracking-tight">{item.title}</h4>
+                          <h4 className="text-4xl font-bold font-futuristic mb-6 uppercase tracking-tight text-white">{item.title}</h4>
                           <div className="flex gap-4">
-                             {item.tags?.map(t => <span key={t} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[9px] font-bold uppercase tracking-widest">{t}</span>)}
+                             {item.tags?.map(t => <span key={t} className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[9px] font-bold uppercase tracking-widest text-white">{t}</span>)}
                           </div>
                        </div>
                     </div>
@@ -623,13 +590,13 @@ const App: React.FC = () => {
                    </div>
                 ) : (
                   <>
-                    <input required type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/20" />
-                    <input required type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/20" />
-                    <textarea required placeholder="Briefly describe your project mission..." className="w-full h-44 bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all resize-none text-white placeholder:text-white/20" />
+                    <input required type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/30" />
+                    <input required type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/30" />
+                    <textarea required placeholder="Briefly describe your project mission..." className="w-full h-44 bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all resize-none text-white placeholder:text-white/30" />
                     <button className="w-full py-7 bg-white text-black rounded-2xl font-bold text-xl tracking-[0.2em] hover:bg-purple-600 hover:text-white transition-all uppercase shadow-2xl transform active:scale-95">
                       {formStatus === 'sending' ? 'Transmitting...' : 'Transmit Mission'}
                     </button>
-                    <a href={WHATSAPP_LINK} className="w-full py-4 border border-white/5 text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-3 hover:text-green-400 transition-colors">Or message us via WhatsApp <Icon name="MessageCircle" className="w-4 h-4" /></a>
+                    <a href={WHATSAPP_LINK} className="w-full py-4 border border-white/10 text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-3 hover:text-green-400 transition-colors">Or message us via WhatsApp <Icon name="MessageCircle" className="w-4 h-4" /></a>
                   </>
                 )}
               </form>
@@ -639,7 +606,7 @@ const App: React.FC = () => {
       </main>
 
       {/* Professional Footer */}
-      <footer className="pt-32 pb-16 border-t border-white/5 bg-[#030303] relative z-10">
+      <footer className="pt-32 pb-16 border-t border-white/10 bg-[#030303] relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24">
             <div className="space-y-10">
@@ -653,9 +620,9 @@ const App: React.FC = () => {
                 Visualix Studio is an elite creative agency specializing in high-performance digital solutions and premium web experiences.
               </p>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/5 hover:border-purple-500 transition-all"><Icon name="Instagram" className="w-5 h-5" /></a>
-                <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/5 hover:border-purple-500 transition-all"><Icon name="Twitter" className="w-5 h-5" /></a>
-                <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/5 hover:border-purple-500 transition-all"><Icon name="LinkedIn" className="w-5 h-5" /></a>
+                <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/10 hover:border-purple-500 transition-all"><Icon name="Instagram" className="w-5 h-5" /></a>
+                <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/10 hover:border-purple-500 transition-all"><Icon name="Twitter" className="w-5 h-5" /></a>
+                <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/10 hover:border-purple-500 transition-all"><Icon name="LinkedIn" className="w-5 h-5" /></a>
               </div>
             </div>
 
@@ -677,13 +644,13 @@ const App: React.FC = () => {
               <h4 className="text-[11px] font-bold uppercase tracking-[0.4em] text-white mb-10">Newsletter</h4>
               <p className="text-white text-sm mb-8">Join our briefing for digital engineering updates.</p>
               <div className="flex gap-4">
-                 <input type="email" placeholder="Email" className="bg-white/5 border border-white/5 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-purple-500 flex-grow text-white" />
+                 <input type="email" placeholder="Email" className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-purple-500 flex-grow text-white placeholder:text-white/30" />
                  <button className="w-12 h-12 bg-white text-black rounded-xl flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all shadow-xl"><Icon name="ArrowRight" className="w-5 h-5" /></button>
               </div>
             </div>
           </div>
 
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
             <p className="text-[10px] text-white tracking-[0.4em] font-bold uppercase">© 2024 Visualix Studio. Built for Global Impact.</p>
             <div className="flex gap-10 text-[10px] font-bold uppercase tracking-widest text-white">
                <a href="#" className="hover:text-purple-400 transition-colors">Privacy</a>
