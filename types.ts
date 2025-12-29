@@ -35,3 +35,6 @@ export interface PortfolioItem {
 }
 
 export type Category = 'All' | 'E-commerce' | 'Development' | 'Web Design' | 'Branding';
+
+// Added Page type to fix the import error in App.tsx and provide type safety for navigation
+export type Page = 'home' | 'services' | 'projects' | 'about' | 'contact';

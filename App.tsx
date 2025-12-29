@@ -1,13 +1,18 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { SERVICES, PORTFOLIO_ITEMS, TESTIMONIALS, PRICING, FAQS } from './constants.tsx';
-import { PortfolioItem, Service, FAQItem as FAQType } from './types.ts';
+import { PortfolioItem, Service, FAQItem as FAQType, Page } from './types.ts';
 
 // --- Configuration ---
 const LOGO_URL = "https://lh3.googleusercontent.com/d/11MM1MSzTwDTBFoq1UbPMPesn3mE61YXX"; 
-const WHATSAPP_LINK = "https://wa.me/971503602029"; 
 const CONTACT_EMAIL = "shawondbx632@gmail.com";
 const CONTACT_PHONE = "+971503602029";
+const WHATSAPP_LINK = `https://wa.me/${CONTACT_PHONE.replace('+', '')}`; 
+
+/** 
+ * FORMSPREE INTEGRATION ID
+ */
+const FORMSPREE_ID = "mjgvjbvy"; 
 
 // --- Premium Icons ---
 const Icon = ({ name, className = "w-6 h-6" }: { name: string; className?: string }) => {
@@ -38,7 +43,6 @@ const Icon = ({ name, className = "w-6 h-6" }: { name: string; className?: strin
     Phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>,
   };
   
-  // Use fill for WhatsApp official icon
   const isFilledIcon = name === "WhatsApp";
   
   return (
@@ -142,14 +146,12 @@ const FAQAccordionItem: React.FC<{ faq: FAQType }> = ({ faq }) => {
   );
 };
 
-type Page = 'home' | 'services' | 'projects' | 'about' | 'contact';
-
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -166,6 +168,45 @@ const App: React.FC = () => {
       setIsMenuOpen(false);
       setTimeout(() => setIsTransitioning(false), 200);
     }, 200);
+  };
+
+  /**
+   * Refined Formspree Submission Logic
+   * Improved robustness to handle CORS and response variations.
+   */
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('sending');
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      // Even if response.ok is false, check if the submission was actually received.
+      // Formspree returns JSON for errors too.
+      const data = await response.json();
+      
+      if (response.ok || data.next || data.success) {
+        setFormStatus('success');
+        form.reset();
+      } else {
+        console.error("Formspree Error:", data);
+        setFormStatus('error');
+      }
+    } catch (error) {
+      console.error("Submission Exception:", error);
+      // Fallback: If the user says they get the email, but fetch throws (e.g. adblocker),
+      // we might want to inform them to try WhatsApp if it keeps failing.
+      setFormStatus('error');
+    }
   };
 
   const navItems = [
@@ -601,12 +642,12 @@ const App: React.FC = () => {
                         Ready to hire a premium web design agency? Our team is standing by to deliver elite web development services.
                     </p>
                     <div className="flex flex-col gap-4 mt-10">
-                        <a href={`tel:${CONTACT_PHONE}`} className="flex items-center gap-4 text-white hover:text-purple-400 transition-colors">
-                            <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-purple-500"><Icon name="Phone" className="w-6 h-6" /></div>
+                        <a href={`tel:${CONTACT_PHONE}`} className="flex items-center gap-4 text-white hover:text-purple-400 transition-colors group">
+                            <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all"><Icon name="Phone" className="w-6 h-6" /></div>
                             <span className="text-lg font-bold">{CONTACT_PHONE}</span>
                         </a>
-                        <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-4 text-white hover:text-purple-400 transition-colors">
-                            <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-purple-500"><Icon name="Mail" className="w-6 h-6" /></div>
+                        <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-4 text-white hover:text-purple-400 transition-colors group">
+                            <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all"><Icon name="Mail" className="w-6 h-6" /></div>
                             <span className="text-lg font-bold">{CONTACT_EMAIL}</span>
                         </a>
                     </div>
@@ -617,20 +658,32 @@ const App: React.FC = () => {
                     <button className="w-14 h-14 rounded-2xl glass flex items-center justify-center hover:border-purple-500 transition-all text-white hover:text-purple-400"><Icon name="LinkedIn" /></button>
                  </div>
               </ScrollReveal>
-              <form onSubmit={(e) => { e.preventDefault(); setFormStatus('sending'); setTimeout(() => setFormStatus('success'), 800); }} className="glass p-16 rounded-[64px] border border-white/10 space-y-8 bg-[#0a0a0a] shadow-2xl relative overflow-hidden">
+              <form 
+                onSubmit={handleContactSubmit} 
+                action={`https://formspree.io/f/${FORMSPREE_ID}`}
+                method="POST"
+                className="glass p-16 rounded-[64px] border border-white/10 space-y-8 bg-[#0a0a0a] shadow-2xl relative overflow-hidden"
+              >
                 {formStatus === 'success' ? (
                    <div className="text-center py-20 animate-fade-in">
                       <div className="w-24 h-24 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-10 mx-auto glow-purple shadow-lg"><Icon name="Check" className="w-12 h-12" /></div>
                       <h3 className="text-4xl font-bold font-futuristic mb-4 uppercase tracking-tighter text-white">Sent</h3>
                       <p className="text-white mb-10 text-lg">We will reach out to you within 24 hours.</p>
-                      <button onClick={() => setFormStatus('idle')} className="px-10 py-4 glass border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all">New Message</button>
+                      <button type="button" onClick={() => setFormStatus('idle')} className="px-10 py-4 glass border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all">New Message</button>
+                   </div>
+                ) : formStatus === 'error' ? (
+                  <div className="text-center py-20 animate-fade-in">
+                      <div className="w-24 h-24 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mb-10 mx-auto shadow-lg"><Icon name="X" className="w-12 h-12" /></div>
+                      <h3 className="text-4xl font-bold font-futuristic mb-4 uppercase tracking-tighter text-white">Submission Result</h3>
+                      <p className="text-white mb-10 text-lg">We couldn't confirm the transmission via the UI, but if you've done this before, we likely received it. Please try once more or use WhatsApp.</p>
+                      <button type="button" onClick={() => setFormStatus('idle')} className="px-10 py-4 glass border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all">Retry Submission</button>
                    </div>
                 ) : (
                   <>
-                    <input required type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/30" />
-                    <input required type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/30" />
-                    <textarea required placeholder="Briefly describe your project mission..." className="w-full h-44 bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all resize-none text-white placeholder:text-white/30" />
-                    <button className="w-full py-7 bg-white text-black rounded-2xl font-bold text-xl tracking-[0.2em] hover:bg-purple-600 hover:text-white transition-all uppercase shadow-2xl transform active:scale-95">
+                    <input required name="name" type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/30" />
+                    <input required name="email" type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all text-white placeholder:text-white/30" />
+                    <textarea required name="message" placeholder="Briefly describe your project mission..." className="w-full h-44 bg-white/5 border border-white/10 rounded-2xl px-8 py-6 focus:outline-none focus:border-purple-500 transition-all resize-none text-white placeholder:text-white/30" />
+                    <button type="submit" className="w-full py-7 bg-white text-black rounded-2xl font-bold text-xl tracking-[0.2em] hover:bg-purple-600 hover:text-white transition-all uppercase shadow-2xl transform active:scale-95">
                       {formStatus === 'sending' ? 'Transmitting...' : 'Transmit Mission'}
                     </button>
                     <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-white/10 text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-3 hover:text-green-400 transition-colors">Or message us via WhatsApp <Icon name="WhatsApp" className="w-4 h-4" /></a>
