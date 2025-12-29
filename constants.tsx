@@ -5,7 +5,7 @@ export const SERVICES: Service[] = [
   {
     id: 'web-design',
     title: 'Web Design',
-    description: 'Modern, user-focused website designs crafted to deliver seamless user experiences and drive conversions.',
+    description: 'As a leading web design agency, we craft modern, user-focused website designs that deliver seamless user experiences and drive conversions.',
     icon: 'Layout',
     color: 'from-pink-500 to-rose-500',
     features: [
@@ -24,7 +24,7 @@ export const SERVICES: Service[] = [
   {
     id: 'web-dev',
     title: 'Web Development',
-    description: 'Clean, scalable, and secure codebases engineered for speed, performance, and long-term growth.',
+    description: 'Our premium web development services provide clean, scalable, and secure codebases engineered for speed, performance, and long-term growth.',
     icon: 'Code',
     color: 'from-blue-500 to-cyan-500',
     features: [
@@ -43,7 +43,7 @@ export const SERVICES: Service[] = [
   {
     id: 'ecommerce',
     title: 'E-Commerce Development',
-    description: 'High-performance online stores built to maximize sales through smooth checkout flows and scalable infrastructure.',
+    description: 'Specializing in ecommerce website development, we build high-performance online stores designed to maximize sales through smooth checkout flows.',
     icon: 'ShoppingCart',
     color: 'from-purple-500 to-indigo-500',
     features: [
@@ -62,7 +62,7 @@ export const SERVICES: Service[] = [
   {
     id: 'hosting',
     title: 'Hosting & Domain',
-    description: 'Reliable cloud hosting and domain management to keep your business online 24/7 with zero friction.',
+    description: 'Reliable cloud hosting and domain management to keep your web design agency projects online 24/7 with zero friction.',
     icon: 'Globe',
     color: 'from-green-500 to-emerald-500',
     features: [
@@ -81,7 +81,7 @@ export const SERVICES: Service[] = [
   {
     id: 'maintenance',
     title: 'Maintenance & Support',
-    description: 'Ongoing technical care to ensure your website remains secure, updated, and high-performing.',
+    description: 'Ongoing technical care from our web development services team ensures your website remains secure, updated, and high-performing.',
     icon: 'Shield',
     color: 'from-orange-500 to-amber-500',
     features: [
@@ -100,7 +100,7 @@ export const SERVICES: Service[] = [
   {
     id: 'subscriptions',
     title: 'Monthly Subscriptions',
-    description: 'All-in-one monthly plans covering design, development, and ongoing updates without large upfront costs.',
+    description: 'All-in-one monthly plans covering design and web development services without large upfront costs for growing businesses.',
     icon: 'CreditCard',
     color: 'from-cyan-500 to-blue-500',
     features: [
@@ -156,7 +156,7 @@ export const FAQS: Record<string, FAQItem[]> = {
     { question: 'How long does web design take?', answer: 'Our standard timeline is 5-7 business days, though larger projects may take up to 2 weeks for the initial phase.' },
     { question: 'Is my website mobile responsive?', answer: 'Yes, every design we produce is 100% mobile responsive and tested across all screen sizes.' },
     { question: 'How many revisions are included?', answer: 'We offer multiple revision rounds depending on the plan to ensure you are completely satisfied with the visual identity.' },
-    { question: 'Can I edit the content myself later?', answer: 'Absolutely. We typically build using CMS tools like Sanity, Strapi, or WordPress so you can manage your own content easily.' }
+    { question: 'Can I edit the content myself later?', answer: 'Absolutely. We typically build using CMS tools like Sanity, Starpi, or WordPress so you can manage your own content easily.' }
   ],
   'web-dev': [
     { question: 'Which technologies do you use?', answer: 'We specialize in modern stacks including React, Next.js, TypeScript, Tailwind CSS, and various headless CMS options.' },
@@ -192,7 +192,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: 'E-commerce', 
     imageUrl: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200',
     description: 'A cutting-edge multi-vendor e-commerce platform built for high-scale retail operations.',
-    tags: ['Next.js', 'TypeScript', 'Prisma', 'Stripe']
+    tags: ['Web Development', 'E-Commerce']
   },
   { 
     id: 'p-alnader', 
@@ -200,12 +200,93 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: 'E-commerce', 
     imageUrl: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1200',
     description: 'Bespoke furniture luxury e-commerce platform blending aesthetics with navigation.',
-    tags: ['React', 'Tailwind CSS', 'Framer Motion']
+    tags: ['Web Design', 'E-Commerce']
   }
 ];
 
 export const TESTIMONIALS = [
-  { id: 1, name: "Ahmed R.", role: "CEO, Retail Hub", content: "Visualix Studio delivered a fast, modern website that exceeded our expectations. Our sales increased immediately.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" },
-  { id: 2, name: "Sarah J.", role: "Founder, GreenSpace", content: "The design team understood our brand instantly. The UI is gorgeous and incredibly user-friendly.", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" },
-  { id: 3, name: "Kevin M.", role: "CTO, Fintech Pro", content: "Technical excellence at its best. The Next.js integration is flawless and the site is lightning fast.", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" }
+  { 
+    id: 1, 
+    name: "James Wilson", 
+    date: "12 March 2025",
+    content: "The modern design is excellent—fast and user-friendly. The CMS training was a bit rushed, but the support team was thankfully very responsive afterwards.", 
+    rating: 5
+  },
+  { 
+    id: 2, 
+    name: "Lilly Daniels", 
+    date: "12 September 2025",
+    content: "We nearly went with a cheaper option, but for our dental practice in Surrey this investment has already paid off. The site looks polished and we're getting more enquiries through it.", 
+    rating: 5
+  },
+  { 
+    id: 3, 
+    name: "Zara Webster", 
+    date: "11 September 2025",
+    content: "Our charity in London needed a professional but approachable website. They really cared about our goals and wanted the site to make a difference. That attitude made the whole process reassuring.", 
+    rating: 5
+  },
+  { 
+    id: 4, 
+    name: "Marcus Chen", 
+    date: "05 October 2025",
+    content: "Absolute game changer for my tech startup. The code quality is enterprise-grade, and the design captures our futuristic vision perfectly. Highly recommended!", 
+    rating: 5
+  },
+  { 
+    id: 5, 
+    name: "Sophia Rodriguez", 
+    date: "18 November 2025",
+    content: "I've worked with many agencies, but Visualix stands out for their technical depth. They don't just build sites; they build engines for business growth.", 
+    rating: 5
+  },
+  { 
+    id: 6, 
+    name: "Oliver Smith", 
+    date: "20 December 2025",
+    content: "The level of detail in the UI/UX is breathtaking. Our users have complimented the new interface daily since we launched. Worth every penny of the investment.", 
+    rating: 5
+  },
+  { 
+    id: 7, 
+    name: "Eleanor Rigby", 
+    date: "15 January 2026",
+    content: "Their e-commerce expertise transformed our boutique shop into a global brand. The performance optimization is world-class.", 
+    rating: 5
+  },
+  { 
+    id: 8, 
+    name: "Arjun Mehta", 
+    date: "02 February 2026",
+    content: "Visualix Studio delivers exactly what they promise: elite digital engineering. The transition was smooth, and the results are undeniable.", 
+    rating: 5
+  },
+  { 
+    id: 9, 
+    name: "Sarah Jenkins", 
+    date: "10 February 2026",
+    content: "The most professional web design agency I've ever collaborated with. They understood our brand vision immediately and executed with precision.", 
+    rating: 5
+  },
+  { 
+    id: 10, 
+    name: "David Ko", 
+    date: "22 March 2026",
+    content: "Visualix's ecommerce website development skills are unmatched. Our conversion rates tripled within the first month of launching the new site.", 
+    rating: 5
+  },
+  { 
+    id: 11, 
+    name: "Linda Graham", 
+    date: "05 April 2026",
+    content: "From initial concept to final launch, the web development services provided were exceptional. Fast, secure, and beautiful results.", 
+    rating: 5
+  },
+  { 
+    id: 12, 
+    name: "Ben Thompson", 
+    date: "15 May 2026",
+    content: "A truly futuristic approach to digital design. Their use of AI in planning saved us weeks of time and delivered a superior product.", 
+    rating: 5
+  }
 ];

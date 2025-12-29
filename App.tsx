@@ -5,7 +5,9 @@ import { PortfolioItem, Service, FAQItem as FAQType } from './types.ts';
 
 // --- Configuration ---
 const LOGO_URL = "https://lh3.googleusercontent.com/d/11MM1MSzTwDTBFoq1UbPMPesn3mE61YXX"; 
-const WHATSAPP_LINK = "https://wa.me/your-number"; // Update with actual number
+const WHATSAPP_LINK = "https://wa.me/971503602029"; 
+const CONTACT_EMAIL = "shawondbx632@gmail.com";
+const CONTACT_PHONE = "+971503602029";
 
 // --- Premium Icons ---
 const Icon = ({ name, className = "w-6 h-6" }: { name: string; className?: string }) => {
@@ -23,21 +25,65 @@ const Icon = ({ name, className = "w-6 h-6" }: { name: string; className?: strin
     Instagram: <><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></>,
     Twitter: <path d="M22 4s-1 2.18-4 3.5c0 0-1.24 7.28-9 11.5 0 0 5.4-2.18 5.4-2.18l-3.2 2.18c0 0-2.8-1.5-3.6-2.7C4 16 2.24 14.5 1 13.5l3.2-1c0 0-3.6-4-3.6-7 0 0 1.2 2.3 4.2 2.3 0 0-3-5.3-1-7 0 0 1.8 3.5 6.6 3.5 0 0 .5-5.3 5-5.3 2.14 0 4.1.88 5.4 2.3 0 0 2-.5 3-1.5 0 0-1 2-2 3 0 0-1.5-1 2.5-1.5z" />,
     LinkedIn: <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></>,
-    MessageCircle: <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.3 8.38 8.38 0 0 1 3.8.9L21 3z" />,
-    Smile: <><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></>,
+    WhatsApp: <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />,
     Shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>,
     TrendingUp: <><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></>,
     Clock: <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>,
     CreditCard: <><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></>,
     Headphones: <><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></>,
     Plus: <line x1="12" y1="5" x2="12" y2="19" />,
-    Minus: <line x1="5" y1="12" x2="19" y2="12" />,
+    Minus: <line x1="5" y1="12" x2="19" />,
     ChevronDown: <polyline points="6 9 12 15 18 9" />,
+    Mail: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></>,
+    Phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>,
   };
+  
+  // Use fill for WhatsApp official icon
+  const isFilledIcon = name === "WhatsApp";
+  
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <svg 
+      viewBox="0 0 24 24" 
+      fill={isFilledIcon ? "currentColor" : "none"} 
+      stroke={isFilledIcon ? "none" : "currentColor"} 
+      strokeWidth={isFilledIcon ? "0" : "2"} 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className={className}
+    >
       {icons[name] || <circle cx="12" cy="12" r="10" />}
     </svg>
+  );
+};
+
+// --- Animated Skill Bar ---
+const SkillBar: React.FC<{ label: string; percentage: number; delay?: number }> = ({ label, percentage, delay = 0 }) => {
+  const [width, setWidth] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setTimeout(() => setWidth(percentage), delay);
+      }
+    }, { threshold: 0.1 });
+    if (barRef.current) observer.observe(barRef.current);
+    return () => observer.disconnect();
+  }, [percentage, delay]);
+
+  return (
+    <div className="mb-8" ref={barRef}>
+      <div className="flex justify-between mb-2 items-center">
+        <span className="text-sm font-bold uppercase tracking-widest text-white/80">{label}</span>
+        <span className="text-xs font-bold text-purple-400">{width}%</span>
+      </div>
+      <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+        <div 
+          className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 transition-all duration-1000 ease-out rounded-full"
+          style={{ width: `${width}%` }}
+        />
+      </div>
+    </div>
   );
 };
 
@@ -55,15 +101,19 @@ const ScrollReveal: React.FC<{ children: React.ReactNode; className?: string; de
   const getTransform = () => {
     if (isVisible) return "translate(0, 0)";
     switch (direction) {
-      case 'up': return "translateY(30px)";
-      case 'down': return "translateY(-30px)";
-      case 'left': return "translateX(30px)";
-      case 'right': return "translateX(-30px)";
-      default: return "translateY(30px)";
+      case 'up': return "translateY(40px)";
+      case 'down': return "translateY(-40px)";
+      case 'left': return "translateX(40px)";
+      case 'right': return "translateX(-40px)";
+      default: return "translateY(40px)";
     }
   };
   return (
-    <div ref={domRef} className={`${className} transition-all duration-700 cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: `${delay}ms`, transform: getTransform() }}>
+    <div 
+      ref={domRef} 
+      className={`${className} transition-all duration-[1200ms] cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? "opacity-100" : "opacity-0"}`} 
+      style={{ transitionDelay: `${delay}ms`, transform: getTransform() }}
+    >
       {children}
     </div>
   );
@@ -121,7 +171,7 @@ const App: React.FC = () => {
   const navItems = [
     { name: 'Home', id: 'home' as Page },
     { name: 'Services', id: 'services' as Page },
-    { name: 'Portfolio', id: 'projects' as Page },
+    { name: 'Projects', id: 'projects' as Page },
     { name: 'About', id: 'about' as Page },
     { name: 'Contact', id: 'contact' as Page },
   ];
@@ -130,9 +180,14 @@ const App: React.FC = () => {
     <div className={`min-h-screen bg-[#050505] text-white selection:bg-purple-900/30 font-sans overflow-x-hidden transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
       
       {/* Floating WhatsApp Button */}
-      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="fixed bottom-8 right-8 z-[90] w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform active:scale-95 group">
-        <Icon name="MessageCircle" className="w-8 h-8 text-white" />
-        <span className="absolute right-16 bg-white text-black px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">WhatsApp Us</span>
+      <a 
+        href={WHATSAPP_LINK} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="fixed bottom-8 right-8 z-[90] w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_30px_-5px_rgba(37,211,102,0.6)] hover:scale-110 hover:shadow-[0_15px_40px_-5px_rgba(37,211,102,0.8)] transition-all active:scale-95 group"
+      >
+        <Icon name="WhatsApp" className="w-8 h-8 text-white" />
+        <span className="absolute right-16 bg-white text-[#075E54] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">WhatsApp Us</span>
       </a>
 
       {/* Navigation */}
@@ -157,40 +212,62 @@ const App: React.FC = () => {
             </button>
           </div>
 
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-white">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-white relative z-[60]">
             <Icon name={isMenuOpen ? "X" : "Menu"} className="w-6 h-6" />
           </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-[45] lg:hidden transition-all duration-500 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="absolute inset-0 bg-black/95 backdrop-blur-3xl"></div>
+        <div className="relative h-full flex flex-col items-center justify-center gap-10 p-6">
+          {navItems.map((item) => (
+            <button 
+              key={item.id} 
+              onClick={() => navigate(item.id)} 
+              className={`text-3xl font-bold font-futuristic uppercase tracking-[0.3em] transition-all ${currentPage === item.id ? 'text-purple-500' : 'text-white'}`}
+            >
+              {item.name}
+            </button>
+          ))}
+          <button 
+            onClick={() => navigate('contact')} 
+            className="mt-10 px-16 py-6 rounded-full bg-white text-black font-bold uppercase tracking-widest text-sm shadow-2xl hover:bg-purple-600 hover:text-white transition-all"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
 
       <main className="relative z-10">
         {currentPage === 'home' && (
           <>
             {/* Hero Section */}
             <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20 text-center relative overflow-hidden">
-              <ScrollReveal delay={100}>
+              <ScrollReveal delay={200}>
                 <div className="inline-flex items-center gap-3 px-8 py-3 rounded-full glass border border-purple-900/40 mb-12 animate-soft-bounce">
                   <Icon name="Sparkles" className="w-4 h-4 text-purple-400" />
-                  <span className="text-[12px] font-bold tracking-[0.4em] uppercase text-white">Premium Digital Agency</span>
+                  <span className="text-[12px] font-bold tracking-[0.4em] uppercase text-white">Premium Web Design Agency</span>
                 </div>
               </ScrollReveal>
-              <ScrollReveal delay={300}>
-                <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-futuristic leading-[1] tracking-tighter mb-12 text-white">
+              <ScrollReveal delay={450}>
+                <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-futuristic leading-[1.1] tracking-tighter mb-12 text-white">
                   Design. Develop.<br/><span className="gradient-text animate-flow py-2 inline-block">Scale Your Online Presence.</span>
                 </h1>
               </ScrollReveal>
-              <ScrollReveal delay={500}>
+              <ScrollReveal delay={700}>
                 <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto mb-16 font-light leading-relaxed">
-                  Visualix Studio builds high-performance websites and scalable web solutions designed to convert visitors, grow businesses, and deliver long-term value.
+                  Visualix Studio builds high-performance websites and scalable web development services designed to convert visitors and drive growth.
                 </p>
               </ScrollReveal>
-              <ScrollReveal delay={700}>
+              <ScrollReveal delay={950}>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-lg hover:bg-purple-600 hover:text-white transition-all shadow-2xl uppercase tracking-widest transform hover:scale-105">
+                  <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-lg hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105">
                     Get a Free Quote
                   </button>
                   <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-sm uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center gap-3">
-                    <Icon name="MessageCircle" className="w-5 h-5 text-green-400" /> WhatsApp Us
+                    <Icon name="WhatsApp" className="w-5 h-5 text-green-400" /> WhatsApp Us
                   </a>
                 </div>
               </ScrollReveal>
@@ -207,9 +284,9 @@ const App: React.FC = () => {
                 </ScrollReveal>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {SERVICES.slice(0,3).map((s, i) => (
-                    <ScrollReveal key={s.id} delay={i * 150}>
+                    <ScrollReveal key={s.id} delay={i * 200}>
                       <div className="glass p-12 rounded-[40px] border border-white/10 hover:border-purple-500/50 transition-all group h-full flex flex-col bg-white/5 shadow-2xl">
-                        <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-10 shadow-2xl`}>
+                        <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-10 shadow-2xl group-hover:scale-110 transition-transform`}>
                           <Icon name={s.icon} className="w-10 h-10 text-white" />
                         </div>
                         <h3 className="text-2xl font-bold mb-6 font-futuristic uppercase text-white">{s.title}</h3>
@@ -242,9 +319,9 @@ const App: React.FC = () => {
                           { t: 'AI-Assisted Delivery', d: 'Fast delivery without compromising on pixel perfection.' },
                           { t: 'Transparent Workflows', d: 'Clear communication at every stage of the mission.' },
                           { t: 'Long-Term Support', d: 'We grow with you, providing ongoing maintenance.' }
-                        ].map(item => (
-                          <div key={item.t} className="flex gap-6 items-start">
-                             <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center flex-shrink-0 text-purple-400 border border-white/10">
+                        ].map((item, i) => (
+                          <div key={item.t} className={`flex gap-6 items-start animate-fade-in`} style={{ animationDelay: `${i * 150 + 200}ms` }}>
+                             <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center flex-shrink-0 text-purple-400 border border-white/10 shadow-lg">
                                 <Icon name="Check" className="w-6 h-6" />
                              </div>
                              <div>
@@ -255,19 +332,19 @@ const App: React.FC = () => {
                         ))}
                      </div>
                   </ScrollReveal>
-                  <ScrollReveal direction="left">
-                     <div className="glass p-16 rounded-[64px] border border-white/10 bg-black/40 shadow-2xl text-center">
-                        <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center mx-auto mb-12 shadow-2xl">
+                  <ScrollReveal direction="left" delay={300}>
+                     <div className="glass p-16 rounded-[64px] border border-white/10 bg-black/40 shadow-2xl text-center hover:scale-[1.02] transition-transform">
+                        <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center mx-auto mb-12 shadow-2xl animate-float">
                            <Icon name="TrendingUp" className="w-16 h-16 text-black" />
                         </div>
                         <h4 className="text-3xl font-bold font-futuristic uppercase tracking-tighter text-white mb-6">Results That Matter</h4>
                         <div className="grid grid-cols-1 gap-8 text-left max-w-xs mx-auto">
-                           <div className="flex items-center gap-4">
-                              <span className="text-3xl font-bold gradient-text">85%</span>
+                           <div className="flex items-center gap-4 group">
+                              <span className="text-3xl font-bold gradient-text group-hover:scale-110 transition-transform">40%</span>
                               <p className="text-xs uppercase font-bold tracking-widest text-white">Faster Load Times</p>
                            </div>
-                           <div className="flex items-center gap-4">
-                              <span className="text-3xl font-bold gradient-text">98%</span>
+                           <div className="flex items-center gap-4 group">
+                              <span className="text-3xl font-bold gradient-text group-hover:scale-110 transition-transform">60%</span>
                               <p className="text-xs uppercase font-bold tracking-widest text-white">Higher Engagement</p>
                            </div>
                         </div>
@@ -276,40 +353,46 @@ const App: React.FC = () => {
                </div>
             </section>
 
-            {/* Testimonials */}
-            <section className="py-32 px-6 bg-[#080808]">
-               <div className="max-w-7xl mx-auto">
-                  <ScrollReveal><h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-20 uppercase tracking-tighter text-white text-center">What Clients Say</h2></ScrollReveal>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {TESTIMONIALS.map((t, i) => (
-                      <ScrollReveal key={t.id} delay={i * 200}>
-                        <div className="glass p-12 rounded-[40px] border border-white/10 h-full flex flex-col shadow-xl bg-white/5">
-                           <div className="flex text-yellow-500 mb-8">
-                              {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
-                           </div>
-                           <p className="text-white text-lg leading-relaxed mb-12 flex-grow italic">"{t.content}"</p>
-                           <div className="flex items-center gap-6 pt-10 border-t border-white/10">
-                              <img src={t.avatar} className="w-14 h-14 rounded-xl object-cover" alt="" />
-                              <div>
-                                 <h4 className="font-bold uppercase tracking-widest text-sm text-white">{t.name}</h4>
-                                 <p className="text-purple-500 text-[10px] font-bold uppercase tracking-[0.2em]">{t.role}</p>
-                              </div>
-                           </div>
-                        </div>
-                      </ScrollReveal>
+            {/* Testimonials Marquee Section */}
+            <section className="py-32 bg-[#080808] overflow-hidden">
+               <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+                  <ScrollReveal>
+                    <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-4 block text-[10px]">Success Stories</span>
+                    <h2 className="text-4xl md:text-6xl font-bold font-futuristic uppercase tracking-tighter text-white">What Our Clients Think</h2>
+                  </ScrollReveal>
+               </div>
+               
+               <div className="relative flex overflow-x-hidden">
+                 <div className="flex animate-marquee hover:[animation-play-state:paused] gap-8 py-4 px-4">
+                    {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+                      <div key={`${t.id}-${i}`} className="w-[400px] flex-shrink-0 glass p-10 rounded-[32px] border border-white/10 h-full flex flex-col shadow-2xl bg-white/[0.03] hover:bg-white/[0.05] transition-all group">
+                         <div className="flex text-yellow-500 mb-6 gap-0.5">
+                            {[...Array(t.rating || 5)].map((_, starIdx) => <span key={starIdx} className="text-xl">★</span>)}
+                         </div>
+                         <p className="text-white text-lg leading-relaxed mb-10 flex-grow font-light italic">
+                           "{t.content}"
+                         </p>
+                         <div className="flex justify-between items-center pt-8 border-t border-white/5">
+                            <div>
+                               <h4 className="font-bold text-white uppercase tracking-tight text-lg group-hover:text-purple-400 transition-colors">{t.name}</h4>
+                            </div>
+                            <p className="text-white/40 text-[11px] font-medium uppercase tracking-widest whitespace-nowrap">{t.date}</p>
+                         </div>
+                      </div>
                     ))}
-                  </div>
+                 </div>
                </div>
             </section>
 
             {/* Global CTA */}
-            <section className="py-40 px-6 text-center border-t border-white/10">
+            <section className="py-40 px-6 text-center border-t border-white/10 relative overflow-hidden">
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/10 blur-[150px] rounded-full -z-10 animate-pulse-glow"></div>
                <ScrollReveal>
                  <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-10 tracking-tighter uppercase leading-[0.9] text-white">Ready to Start Your Project?</h2>
-                 <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Let’s build a high-performing website that grows your business. Partner with Visualix Studio today.</p>
+                 <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Partner with a premium web design agency. Let's build a high-performing website together.</p>
                  <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                    <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-xl hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105">Get a Free Quote</button>
-                    <a href={WHATSAPP_LINK} className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center justify-center gap-3">WhatsApp Us</a>
+                    <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-xl hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105 active:scale-95">Get a Free Quote</button>
+                    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center justify-center gap-3 active:scale-95"><Icon name="WhatsApp" className="w-6 h-6 text-green-400" /> WhatsApp Us</a>
                  </div>
                </ScrollReveal>
             </section>
@@ -321,7 +404,7 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto">
                <ScrollReveal className="text-center mb-40">
                   <h2 className="text-5xl md:text-9xl font-bold font-futuristic mb-10 uppercase tracking-tighter text-white">Our Solutions</h2>
-                  <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-light leading-relaxed">High-performance digital services and flexible subscription models.</p>
+                  <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-light leading-relaxed">High-performance digital engineering and ecommerce website development.</p>
                </ScrollReveal>
 
                {SERVICES.map((s, idx) => (
@@ -343,7 +426,7 @@ const App: React.FC = () => {
                        <ScrollReveal className="h-full">
                           <div className={`p-16 rounded-[64px] bg-gradient-to-br ${s.color} flex flex-col items-center justify-center text-white h-[500px] shadow-2xl relative overflow-hidden group`}>
                              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500"></div>
-                             <Icon name={s.icon} className="w-32 h-32 mb-10 relative z-10" />
+                             <Icon name={s.icon} className="w-32 h-32 mb-10 relative z-10 group-hover:scale-110 transition-transform duration-700" />
                              <h4 className="text-2xl font-bold font-futuristic uppercase tracking-widest relative z-10">Premium Delivery</h4>
                           </div>
                        </ScrollReveal>
@@ -397,10 +480,10 @@ const App: React.FC = () => {
                     <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-4 block text-[10px]">About Visualix Studio</span>
                     <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white leading-[0.8]">Clean Design. <br/><span className="text-purple-600">Smart Code.</span></h2>
                     <p className="text-white text-2xl leading-relaxed font-light mb-12">
-                      Visualix Studio is a modern digital agency specializing in web design, web development, and e-commerce solutions. We help businesses build strong online identities through clean design, scalable development, and performance-focused strategies.
+                      Visualix Studio is a modern web design agency specializing in premium web development services and ecommerce website development. We help businesses build strong online identities through clean design and scalable code.
                     </p>
                     <p className="text-white text-lg leading-relaxed font-light mb-12">
-                      Our goal is simple — to create websites that not only look great but also deliver real business results.
+                      Our goal is simple — to create high-performing websites that not only look great but also deliver measurable business results.
                     </p>
                     <button onClick={() => navigate('contact')} className="px-10 py-5 bg-white text-black rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-purple-600 hover:text-white transition-all shadow-xl">Contact Our Team</button>
                   </div>
@@ -421,7 +504,7 @@ const App: React.FC = () => {
                        <span className="text-purple-500 font-bold uppercase tracking-[0.4em] mb-6 block text-[10px]">Strategic Path</span>
                        <h3 className="text-4xl font-bold font-futuristic mb-8 uppercase text-white">Our Vision</h3>
                        <p className="text-white text-xl font-light leading-relaxed">
-                          To become a trusted digital partner for businesses worldwide by delivering innovative, scalable, and result-driven web solutions.
+                          To become a trusted partner for businesses worldwide by delivering innovative, scalable, and result-driven ecommerce website development solutions.
                        </p>
                     </div>
                  </ScrollReveal>
@@ -430,40 +513,22 @@ const App: React.FC = () => {
                        <span className="text-purple-500 font-bold uppercase tracking-[0.4em] mb-6 block text-[10px]">Core Purpose</span>
                        <h3 className="text-4xl font-bold font-futuristic mb-8 uppercase text-white">Our Mission</h3>
                        <p className="text-white text-xl font-light leading-relaxed">
-                          Our mission is to empower brands with high-performing websites by combining creative design, clean code, and smart technologies to drive growth and long-term success.
+                          Our mission is to empower brands with high-performing websites by combining creative design and clean code to drive growth and long-term success.
                        </p>
                     </div>
                  </ScrollReveal>
               </div>
 
-              {/* What We Do & Why Us */}
+              {/* Expertise & Skills Section */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-40 items-start">
                  <ScrollReveal>
-                    <h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white">What We Do</h2>
-                    <div className="space-y-6">
-                       {[
-                         'Website Design (UI/UX & branding)',
-                         'Web Development (Frontend & Backend)',
-                         'E-Commerce Website Development',
-                         'Performance & SEO Optimization',
-                         'Ongoing Support & Maintenance'
-                       ].map(item => (
-                         <div key={item} className="flex items-center gap-6 p-6 glass rounded-2xl border border-white/10 hover:border-purple-500/30 transition-all bg-white/[0.02]">
-                            <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0"><Icon name="Check" className="w-5 h-5 text-purple-400" /></div>
-                            <span className="text-white font-medium text-lg uppercase tracking-widest text-[12px]">{item}</span>
-                         </div>
-                       ))}
-                    </div>
-                 </ScrollReveal>
-                 <ScrollReveal delay={200}>
                     <h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white">Why Visualix</h2>
                     <div className="space-y-6">
                        {[
-                         { t: 'Unified Expertise', d: 'Creative and technical expertise in one team' },
-                         { t: 'AI-Assisted Workflows', d: 'Faster delivery without compromising quality' },
+                         { t: 'Unified Expertise', d: 'Creative and technical expertise in one elite team' },
+                         { t: 'AI-Assisted Workflows', d: 'Faster delivery without compromising on quality' },
                          { t: 'Transparent Processes', d: 'Consistent communication and clear reporting' },
-                         { t: 'Scaleable Pricing', d: 'Affordable for startups and growing businesses' },
-                         { t: 'Infinite Support', d: 'Long-term support beyond project completion' }
+                         { t: 'Scaleable Pricing', d: 'Affordable for startups and global brands' }
                        ].map(item => (
                          <div key={item.t} className="p-8 glass rounded-3xl border border-white/10 bg-white/5 hover:bg-white/[0.08] transition-all">
                             <h4 className="text-white font-bold font-futuristic uppercase text-sm mb-2">{item.t}</h4>
@@ -472,65 +537,25 @@ const App: React.FC = () => {
                        ))}
                     </div>
                  </ScrollReveal>
+                 <ScrollReveal delay={200}>
+                    <h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white">Our Performance</h2>
+                    <div className="glass p-12 rounded-[48px] border border-white/10 bg-white/5">
+                      <SkillBar label="Creativity" percentage={95} delay={100} />
+                      <SkillBar label="Technical Expertise" percentage={98} delay={300} />
+                      <SkillBar label="Client Satisfaction" percentage={100} delay={500} />
+                      <SkillBar label="Performance Optimization" percentage={96} delay={700} />
+                    </div>
+                 </ScrollReveal>
               </div>
-
-              {/* How We Work Section */}
-              <section className="mb-40">
-                 <ScrollReveal className="text-center mb-24">
-                    <h2 className="text-4xl md:text-6xl font-bold font-futuristic mb-6 uppercase tracking-tighter text-white">How We Work</h2>
-                 </ScrollReveal>
-                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-                    {[
-                      { s: '01', t: 'Discovery', d: 'Deep requirement analysis and brand discovery.' },
-                      { s: '02', t: 'Planning', d: 'UI/UX design and architecture mapping.' },
-                      { s: '03', t: 'Building', d: 'Performance-optimized development & coding.' },
-                      { s: '04', t: 'Launch', d: 'Testing, revisions, and final deployment.' },
-                      { s: '05', t: 'Support', d: 'Ongoing maintenance and strategic improvements.' }
-                    ].map((step, i) => (
-                      <ScrollReveal key={step.s} delay={i * 100}>
-                         <div className="relative glass p-10 rounded-[40px] border border-white/10 bg-white/5 h-full group hover:bg-white/10 transition-all">
-                            <span className="text-5xl font-bold font-futuristic text-white/10 absolute top-6 right-8 group-hover:text-purple-500/20 transition-all">{step.s}</span>
-                            <h4 className="text-xl font-bold font-futuristic uppercase tracking-tighter mb-4 text-white">{step.t}</h4>
-                            <p className="text-white text-xs leading-relaxed">{step.d}</p>
-                         </div>
-                      </ScrollReveal>
-                    ))}
-                 </div>
-              </section>
-
-              {/* Trust Badges */}
-              <section className="mb-40 py-24 bg-white/[0.02] border-y border-white/10 rounded-[64px]">
-                 <ScrollReveal className="text-center mb-20 px-6">
-                    <h2 className="text-3xl md:text-5xl font-bold font-futuristic mb-6 uppercase tracking-tighter text-white">Trusted. Reliable. Proven.</h2>
-                    <p className="text-white max-w-xl mx-auto uppercase tracking-widest text-[10px] font-bold">Building long-lasting partnerships through quality, transparency, and trust.</p>
-                 </ScrollReveal>
-                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 px-12">
-                    {[
-                      { t: '100% Satisfaction', i: 'Smile' },
-                      { t: 'Secure & Scalable', i: 'Shield' },
-                      { t: 'SEO-Optimized', i: 'TrendingUp' },
-                      { t: 'On-Time Delivery', i: 'Clock' },
-                      { t: 'Transparent Pricing', i: 'CreditCard' },
-                      { t: 'Long-Term Support', i: 'Headphones' }
-                    ].map((badge, i) => (
-                      <ScrollReveal key={badge.t} delay={i * 100} className="text-center">
-                         <div className="w-16 h-16 rounded-2xl glass border border-white/10 flex items-center justify-center mx-auto mb-6 bg-white/5 text-purple-400">
-                            <Icon name={badge.i} className="w-8 h-8" />
-                         </div>
-                         <p className="text-[10px] font-bold uppercase tracking-widest text-white">{badge.t}</p>
-                      </ScrollReveal>
-                    ))}
-                 </div>
-              </section>
 
               {/* Final CTA */}
               <section className="text-center py-40 bg-[#080808] rounded-[64px] border border-white/10">
                 <ScrollReveal>
                   <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-10 tracking-tighter uppercase leading-[0.9] text-white">Let’s Build Something <br/><span className="gradient-text">Great Together.</span></h2>
-                  <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Whether you’re a startup, small business, or growing brand, Visualix Studio is ready to help you create a powerful digital presence.</p>
+                  <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Whether you need a web design agency or elite web development services, Visualix Studio is ready to elevate your digital presence.</p>
                   <div className="flex flex-col sm:flex-row gap-6 justify-center">
                       <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-xl hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105">Get a Free Quote</button>
-                      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center justify-center gap-3"><Icon name="MessageCircle" className="w-6 h-6 text-green-400" /> WhatsApp Us</a>
+                      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center justify-center gap-3"><Icon name="WhatsApp" className="w-6 h-6 text-green-400" /> WhatsApp Us</a>
                   </div>
                 </ScrollReveal>
               </section>
@@ -542,19 +567,19 @@ const App: React.FC = () => {
           <div className="py-32 px-6">
             <div className="max-w-7xl mx-auto">
               <ScrollReveal className="text-center mb-32">
-                 <h2 className="text-5xl md:text-9xl font-bold font-futuristic mb-10 uppercase tracking-tighter text-white">Portfolio</h2>
-                 <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-light leading-relaxed">Proof of concept. Proof of performance.</p>
+                 <h2 className="text-5xl md:text-9xl font-bold font-futuristic mb-10 uppercase tracking-tighter text-white">Projects</h2>
+                 <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-light leading-relaxed">Showcasing our ecommerce website development and custom design projects.</p>
               </ScrollReveal>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {PORTFOLIO_ITEMS.map((item, idx) => (
                   <ScrollReveal key={item.id} delay={idx * 150}>
-                    <div className="group relative glass rounded-[48px] overflow-hidden border border-white/10 aspect-[4/3] shadow-2xl cursor-pointer">
+                    <div className="group relative glass rounded-[48px] overflow-hidden border border-white/10 aspect-[16/10] shadow-2xl cursor-pointer">
                        <img src={item.imageUrl} className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-40 transition-all duration-1000" alt="" />
                        <div className="absolute inset-0 flex flex-col justify-end p-12 text-white">
                           <span className="text-purple-500 font-bold uppercase tracking-[0.4em] mb-4 text-[10px]">{item.category}</span>
-                          <h4 className="text-4xl font-bold font-futuristic mb-6 uppercase tracking-tight text-white">{item.title}</h4>
+                          <h4 className="text-5xl font-bold font-futuristic mb-6 uppercase tracking-tight text-white">{item.title}</h4>
                           <div className="flex gap-4">
-                             {item.tags?.map(t => <span key={t} className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[9px] font-bold uppercase tracking-widest text-white">{t}</span>)}
+                             {item.tags?.map(t => <span key={t} className="px-6 py-2 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">{t}</span>)}
                           </div>
                        </div>
                     </div>
@@ -571,9 +596,21 @@ const App: React.FC = () => {
               <ScrollReveal>
                  <span className="text-purple-500 font-bold uppercase tracking-[0.5em] mb-6 block text-[10px]">Get In Touch</span>
                  <h2 className="text-5xl md:text-8xl font-bold font-futuristic mb-12 uppercase tracking-tighter text-white leading-[0.8]">Let’s Start <br/><span className="text-purple-600">Your Project.</span></h2>
-                 <p className="text-white text-2xl mb-16 max-w-lg font-light leading-relaxed">
-                    Ready to build a high-performing website that grows your business? Our team is standing by.
-                 </p>
+                 <div className="space-y-6 mb-16">
+                    <p className="text-white text-2xl font-light leading-relaxed">
+                        Ready to hire a premium web design agency? Our team is standing by to deliver elite web development services.
+                    </p>
+                    <div className="flex flex-col gap-4 mt-10">
+                        <a href={`tel:${CONTACT_PHONE}`} className="flex items-center gap-4 text-white hover:text-purple-400 transition-colors">
+                            <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-purple-500"><Icon name="Phone" className="w-6 h-6" /></div>
+                            <span className="text-lg font-bold">{CONTACT_PHONE}</span>
+                        </a>
+                        <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-4 text-white hover:text-purple-400 transition-colors">
+                            <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-purple-500"><Icon name="Mail" className="w-6 h-6" /></div>
+                            <span className="text-lg font-bold">{CONTACT_EMAIL}</span>
+                        </a>
+                    </div>
+                 </div>
                  <div className="flex gap-6">
                     <button className="w-14 h-14 rounded-2xl glass flex items-center justify-center hover:border-purple-500 transition-all text-white hover:text-purple-400"><Icon name="Instagram" /></button>
                     <button className="w-14 h-14 rounded-2xl glass flex items-center justify-center hover:border-purple-500 transition-all text-white hover:text-purple-400"><Icon name="Twitter" /></button>
@@ -583,7 +620,7 @@ const App: React.FC = () => {
               <form onSubmit={(e) => { e.preventDefault(); setFormStatus('sending'); setTimeout(() => setFormStatus('success'), 800); }} className="glass p-16 rounded-[64px] border border-white/10 space-y-8 bg-[#0a0a0a] shadow-2xl relative overflow-hidden">
                 {formStatus === 'success' ? (
                    <div className="text-center py-20 animate-fade-in">
-                      <div className="w-24 h-24 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-10 mx-auto glow-purple"><Icon name="Check" className="w-12 h-12" /></div>
+                      <div className="w-24 h-24 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mb-10 mx-auto glow-purple shadow-lg"><Icon name="Check" className="w-12 h-12" /></div>
                       <h3 className="text-4xl font-bold font-futuristic mb-4 uppercase tracking-tighter text-white">Sent</h3>
                       <p className="text-white mb-10 text-lg">We will reach out to you within 24 hours.</p>
                       <button onClick={() => setFormStatus('idle')} className="px-10 py-4 glass border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all">New Message</button>
@@ -596,7 +633,7 @@ const App: React.FC = () => {
                     <button className="w-full py-7 bg-white text-black rounded-2xl font-bold text-xl tracking-[0.2em] hover:bg-purple-600 hover:text-white transition-all uppercase shadow-2xl transform active:scale-95">
                       {formStatus === 'sending' ? 'Transmitting...' : 'Transmit Mission'}
                     </button>
-                    <a href={WHATSAPP_LINK} className="w-full py-4 border border-white/10 text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-3 hover:text-green-400 transition-colors">Or message us via WhatsApp <Icon name="MessageCircle" className="w-4 h-4" /></a>
+                    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full py-4 border border-white/10 text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-3 hover:text-green-400 transition-colors">Or message us via WhatsApp <Icon name="WhatsApp" className="w-4 h-4" /></a>
                   </>
                 )}
               </form>
@@ -617,9 +654,19 @@ const App: React.FC = () => {
                 <span className="font-futuristic font-bold text-lg uppercase text-white">Visualix</span>
               </div>
               <p className="text-white text-sm leading-relaxed max-w-xs">
-                Visualix Studio is an elite creative agency specializing in high-performance digital solutions and premium web experiences.
+                Visualix Studio is an elite web design agency specializing in high-performance digital solutions and premium web experiences.
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-col gap-3 mt-4 text-xs font-medium text-white/60">
+                <div className="flex items-center gap-2">
+                    <Icon name="Phone" className="w-4 h-4 text-purple-500" />
+                    <span>{CONTACT_PHONE}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Icon name="Mail" className="w-4 h-4 text-purple-500" />
+                    <span>{CONTACT_EMAIL}</span>
+                </div>
+              </div>
+              <div className="flex gap-4 mt-6">
                 <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/10 hover:border-purple-500 transition-all"><Icon name="Instagram" className="w-5 h-5" /></a>
                 <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/10 hover:border-purple-500 transition-all"><Icon name="Twitter" className="w-5 h-5" /></a>
                 <a href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white hover:text-purple-400 border border-white/10 hover:border-purple-500 transition-all"><Icon name="LinkedIn" className="w-5 h-5" /></a>
