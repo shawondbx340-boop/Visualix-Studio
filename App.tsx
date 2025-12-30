@@ -286,23 +286,23 @@ const App: React.FC = () => {
           <>
             {/* Hero Section */}
             <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20 text-center relative overflow-hidden">
-              <ScrollReveal delay={200}>
+              <ScrollReveal delay={50}>
                 <div className="inline-flex items-center gap-3 px-8 py-3 rounded-full glass border border-purple-900/40 mb-12 animate-soft-bounce">
                   <Icon name="Sparkles" className="w-4 h-4 text-purple-400" />
                   <span className="text-[12px] font-bold tracking-[0.4em] uppercase text-white">Premium Web Design Agency</span>
                 </div>
               </ScrollReveal>
-              <ScrollReveal delay={450}>
+              <ScrollReveal delay={150}>
                 <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold font-futuristic leading-[1.1] tracking-tighter mb-12 text-white">
                   Design. Develop.<br/><span className="gradient-text animate-flow py-2 inline-block">Scale Your Online Presence.</span>
                 </h1>
               </ScrollReveal>
-              <ScrollReveal delay={700}>
+              <ScrollReveal delay={200}>
                 <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto mb-16 font-light leading-relaxed">
                   Visualix Studio builds high-performance websites and scalable web development services designed to convert visitors and drive growth.
                 </p>
               </ScrollReveal>
-              <ScrollReveal delay={950}>
+              <ScrollReveal delay={200}>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                   <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-lg hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105">
                     Get a Free Quote
@@ -325,7 +325,7 @@ const App: React.FC = () => {
                 </ScrollReveal>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {SERVICES.slice(0,3).map((s, i) => (
-                    <ScrollReveal key={s.id} delay={i * 200}>
+                    <ScrollReveal key={s.id} delay={i * 230}>
                       <div className="glass p-12 rounded-[40px] border border-white/10 hover:border-purple-500/50 transition-all group h-full flex flex-col bg-white/5 shadow-2xl">
                         <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-10 shadow-2xl group-hover:scale-110 transition-transform`}>
                           <Icon name={s.icon} className="w-10 h-10 text-white" />
