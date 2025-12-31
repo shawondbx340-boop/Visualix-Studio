@@ -220,15 +220,17 @@ const App: React.FC = () => {
   return (
     <div className={`min-h-screen bg-[#050505] text-white selection:bg-purple-900/30 font-sans overflow-x-hidden transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
       
-      {/* Floating WhatsApp Button */}
+      {/* Floating WhatsApp Button with Enhanced Pulse Effect */}
       <a 
         href={WHATSAPP_LINK} 
         target="_blank" 
         rel="noopener noreferrer" 
         className="fixed bottom-8 right-8 z-[90] w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_30px_-5px_rgba(37,211,102,0.6)] hover:scale-110 hover:shadow-[0_15px_40px_-5px_rgba(37,211,102,0.8)] transition-all active:scale-95 group"
       >
-        <Icon name="WhatsApp" className="w-8 h-8 text-white" />
-        <span className="absolute right-16 bg-white text-[#075E54] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">WhatsApp Us</span>
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 pointer-events-none"></span>
+        <span className="absolute inset-[-4px] rounded-full border-2 border-[#25D366] opacity-0 group-hover:opacity-40 transition-opacity duration-300"></span>
+        <Icon name="WhatsApp" className="w-8 h-8 text-white relative z-10" />
+        <span className="absolute right-16 bg-white text-[#075E54] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all shadow-lg translate-x-2 group-hover:translate-x-0">WhatsApp Us</span>
       </a>
 
       {/* Navigation */}
@@ -297,18 +299,18 @@ const App: React.FC = () => {
                   Design. Develop.<br/><span className="gradient-text animate-flow py-2 inline-block">Scale Your Online Presence.</span>
                 </h1>
               </ScrollReveal>
-              <ScrollReveal delay={200}>
+              <ScrollReveal delay={150}>
                 <p className="text-lg md:text-2xl text-white max-w-3xl mx-auto mb-16 font-light leading-relaxed">
                   Visualix Studio builds high-performance websites and scalable web development services designed to convert visitors and drive growth.
                 </p>
               </ScrollReveal>
-              <ScrollReveal delay={200}>
+              <ScrollReveal delay={150}>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-lg hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105">
+                  <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-lg hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105 active:scale-95">
                     Get a Free Quote
                   </button>
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-sm uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center gap-3">
-                    <Icon name="WhatsApp" className="w-5 h-5 text-green-400" /> WhatsApp Us
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-sm uppercase tracking-widest text-white hover:bg-[#25D366] hover:text-white transition-all flex items-center gap-3 transform hover:scale-105 active:scale-95 group">
+                    <Icon name="WhatsApp" className="w-5 h-5 text-green-400 group-hover:text-white transition-colors" /> WhatsApp Us
                   </a>
                 </div>
               </ScrollReveal>
@@ -433,7 +435,7 @@ const App: React.FC = () => {
                  <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Partner with a premium web design agency. Let's build a high-performing website together.</p>
                  <div className="flex flex-col sm:flex-row gap-6 justify-center">
                     <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-xl hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105 active:scale-95">Get a Free Quote</button>
-                    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center justify-center gap-3 active:scale-95"><Icon name="WhatsApp" className="w-6 h-6 text-green-400" /> WhatsApp Us</a>
+                    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-[#25D366] hover:text-white transition-all flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 group"><Icon name="WhatsApp" className="w-6 h-6 text-green-400 group-hover:text-white transition-colors" /> WhatsApp Us</a>
                  </div>
                </ScrollReveal>
             </section>
@@ -478,7 +480,7 @@ const App: React.FC = () => {
                        <h4 className="text-xl font-bold font-futuristic uppercase tracking-[0.4em] mb-12 text-center text-white">{s.title} Plans</h4>
                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                           {PRICING[s.id]?.map((p) => (
-                            <div key={p.name} className={`glass p-12 rounded-[40px] border ${p.popular ? 'border-purple-500/50 scale-105 shadow-2xl bg-white/[0.03]' : 'border-white/10'} transition-all hover:bg-white/5 relative flex flex-col`}>
+                            <div key={p.name} className={`glass p-12 rounded-[40px] border ${p.popular ? 'border-purple-500/50 scale-105 shadow-2xl bg-white/[0.03]' : 'border-white/10'} transition-all duration-500 hover:scale-[1.03] hover:border-purple-500/60 hover:bg-white/[0.07] hover:shadow-[0_20px_50px_-10px_rgba(168,85,247,0.2)] relative flex flex-col group`}>
                                {p.popular && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-600 px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-white shadow-lg">Most Popular</span>}
                                <h5 className="text-xl font-bold font-futuristic uppercase text-white mb-2">{p.name}</h5>
                                <p className="text-3xl font-bold gradient-text mb-8">{p.price}</p>
@@ -596,7 +598,7 @@ const App: React.FC = () => {
                   <p className="text-xl md:text-2xl text-white mb-16 font-light max-w-2xl mx-auto leading-relaxed">Whether you need a web design agency or elite web development services, Visualix Studio is ready to elevate your digital presence.</p>
                   <div className="flex flex-col sm:flex-row gap-6 justify-center">
                       <button onClick={() => navigate('contact')} className="px-14 py-6 rounded-full bg-white text-black font-bold text-xl hover:bg-purple-600 hover:text-white transition-all shadow-xl uppercase tracking-widest transform hover:scale-105">Get a Free Quote</button>
-                      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-white/10 transition-all flex items-center justify-center gap-3"><Icon name="WhatsApp" className="w-6 h-6 text-green-400" /> WhatsApp Us</a>
+                      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="px-14 py-6 glass border border-white/20 rounded-full font-bold text-xl uppercase tracking-widest text-white hover:bg-[#25D366] hover:text-white transition-all flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 group"><Icon name="WhatsApp" className="w-6 h-6 text-green-400 group-hover:text-white transition-colors" /> WhatsApp Us</a>
                   </div>
                 </ScrollReveal>
               </section>
@@ -617,10 +619,19 @@ const App: React.FC = () => {
                     <div className="group relative glass rounded-[48px] overflow-hidden border border-white/10 aspect-[16/10] shadow-2xl cursor-pointer">
                        <img src={item.imageUrl} className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-40 transition-all duration-1000" alt="" />
                        <div className="absolute inset-0 flex flex-col justify-end p-12 text-white">
-                          <span className="text-purple-500 font-bold uppercase tracking-[0.4em] mb-4 text-[10px]">{item.category}</span>
                           <h4 className="text-5xl font-bold font-futuristic mb-6 uppercase tracking-tight text-white">{item.title}</h4>
-                          <div className="flex gap-4">
-                             {item.tags?.map(t => <span key={t} className="px-6 py-2 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">{t}</span>)}
+                          <div className="flex flex-wrap gap-4 items-center justify-between">
+                             <div className="flex gap-4">
+                                {item.tags?.map(t => <span key={t} className="px-6 py-2 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md">{t}</span>)}
+                             </div>
+                             <a 
+                               href={item.link || '#'} 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               className="px-8 py-3 rounded-full bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-purple-600 hover:text-white transition-all shadow-xl flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
+                             >
+                               Visit Site <Icon name="ArrowRight" className="w-3 h-3" />
+                             </a>
                           </div>
                        </div>
                     </div>
@@ -751,7 +762,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-[10px] text-white tracking-[0.4em] font-bold uppercase">© 2024 Visualix Studio. Built for Global Impact.</p>
+            <p className="text-[10px] text-white tracking-[0.4em] font-bold uppercase">© 2025 Visualix Studio. Built for Global Impact.</p>
             <div className="flex gap-10 text-[10px] font-bold uppercase tracking-widest text-white">
                <a href="#" className="hover:text-purple-400 transition-colors">Privacy</a>
                <a href="#" className="hover:text-purple-400 transition-colors">Terms</a>

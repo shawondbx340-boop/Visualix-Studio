@@ -26,7 +26,7 @@ export interface FAQItem {
 export interface PortfolioItem {
   id: string;
   title: string;
-  category: 'E-commerce' | 'Development' | 'Web Design' | 'Branding';
+  category: string;
   imageUrl: string;
   description?: string;
   outcome?: string;
@@ -34,7 +34,7 @@ export interface PortfolioItem {
   tags?: string[];
 }
 
-export type Category = 'All' | 'E-commerce' | 'Development' | 'Web Design' | 'Branding';
+export type Category = 'All' | 'E-commerce' | 'Development' | 'Web Design' | 'Branding' | string;
 
-// Added Page type to fix the import error in App.tsx and provide type safety for navigation
+// Added Page type to provide type safety for navigation
 export type Page = 'home' | 'services' | 'projects' | 'about' | 'contact';

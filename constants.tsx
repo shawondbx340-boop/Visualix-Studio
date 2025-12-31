@@ -120,33 +120,33 @@ export const SERVICES: Service[] = [
 
 export const PRICING: Record<string, PricingPlan[]> = {
   'web-design': [
-    { name: 'Basic Website', price: 'From $199', features: ['Up to 5 pages', 'Responsive design', 'Modern UI/UX', 'Basic SEO setup', 'Contact form'], cta: 'Get Started' },
-    { name: 'Standard Website', price: 'From $399', features: ['Up to 10 pages', 'Custom UI/UX', 'Mobile-first design', 'SEO-friendly structure', 'Speed optimization'], cta: 'Get Started', popular: true },
-    { name: 'Premium Website', price: 'From $699', features: ['Unlimited pages', 'Fully custom design', 'Advanced UI/UX', 'Conversion-focused layout', 'Performance optimization'], cta: 'Get Started' }
+    { name: 'Basic Website', price: 'From AED1,500', features: ['Up to 5 pages', 'Responsive design', 'Modern UI/UX', 'Basic SEO setup',], cta: 'Get Started' },
+    { name: 'Standard Website', price: 'From AED2,500', features: ['Up to 10 pages', 'Custom UI/UX', 'Mobile-first design', 'SEO-friendly structure', 'Speed optimization', 'Contact Form',], cta: 'Get Started', popular: true },
+    { name: 'Premium Website', price: 'From AED3,500', features: ['Unlimited pages', 'Fully custom design', 'Advanced UI/UX', 'Conversion-focused layout', 'Performance optimization'], cta: 'Get Started' }
   ],
   'web-dev': [
-    { name: 'Frontend Dev', price: 'From $249', features: ['HTML, CSS, JavaScript', 'Pixel-perfect implementation', 'React/Next.js specialized', 'Fast & clean code'], cta: 'Get Started' },
-    { name: 'Full-Stack Dev', price: 'From $499', features: ['Frontend + backend', 'Database integration', 'Secure & scalable setup', 'Deployment support'], cta: 'Get Started', popular: true },
+    { name: 'Frontend Dev', price: 'From AED3,999', features: ['HTML, CSS, JavaScript', 'Pixel-perfect implementation', 'React/Next.js specialized', 'Fast & clean code'], cta: 'Get Started' },
+    { name: 'Full-Stack Dev', price: 'From AED4,999', features: ['Frontend + backend', 'Database integration', 'Secure & scalable setup', 'Deployment support'], cta: 'Get Started', popular: true },
     { name: 'Custom App', price: 'Custom', features: ['Tailored solution', 'Advanced features', 'API integrations', 'Long-term scalability'], cta: 'Request a Quote' }
   ],
   'ecommerce': [
-    { name: 'Starter Store', price: 'From $399', features: ['Up to 20 products', 'Payment gateway integration', 'Mobile-responsive store', 'Basic SEO'], cta: 'Get Started' },
-    { name: 'Growth Store', price: 'From $699', features: ['Unlimited products', 'Custom store design', 'Inventory & order management', 'Conversion optimization'], cta: 'Get Started', popular: true },
+    { name: 'Starter Store', price: 'From AED2,999', features: ['Up to 20 products', 'Payment gateway integration', 'Mobile-responsive store', 'Basic SEO'], cta: 'Get Started' },
+    { name: 'Growth Store', price: 'From AED3,999', features: ['Unlimited products', 'Custom store design', 'Inventory & order management', 'Conversion optimization'], cta: 'Get Started', popular: true },
     { name: 'Enterprise Store', price: 'Custom', features: ['Fully custom solution', 'Advanced integrations', 'High-performance & security', 'Scalable architecture'], cta: 'Request a Quote' }
   ],
   'hosting': [
-    { name: 'Hosting Setup', price: '$49 / yr', features: ['Hosting configuration', 'Performance optimization', 'Security setup'], cta: 'Select Plan' },
-    { name: 'Domain Registration', price: '$15 / yr', features: ['Domain registration', 'DNS setup', 'Email config support'], cta: 'Select Plan' },
-    { name: 'Domain Bundle', price: '$79 / yr', features: ['Domain included', 'High-speed hosting', 'SSL certificate', 'Priority Support'], cta: 'Select Plan', popular: true }
+    { name: 'Hosting Setup', price: 'AED199 / yr', features: ['Hosting configuration', 'Performance optimization', 'Security setup'], cta: 'Select Plan' },
+    { name: 'Domain Registration', price: 'AED59 / yr', features: ['Domain registration', 'DNS setup', 'Email config support'], cta: 'Select Plan' },
+    { name: 'Domain Bundle', price: 'AED250 / yr', features: ['Domain included', 'High-speed hosting', 'SSL certificate', 'Priority Support'], cta: 'Select Plan', popular: true }
   ],
   'maintenance': [
-    { name: 'Basic Care', price: '$29 / mo', features: ['Monthly backups', 'Security monitoring', 'Minor bug fixes', 'Uptime monitoring'], cta: 'Subscribe' },
-    { name: 'Standard Care', price: '$59 / mo', features: ['Everything in Basic', 'Monthly updates', 'Performance optimization', 'Content updates (limited)'], cta: 'Subscribe', popular: true },
-    { name: 'Premium Care', price: '$99 / mo', features: ['Everything in Standard', 'Priority support', 'Advanced security', 'Unlimited content updates'], cta: 'Subscribe' }
+    { name: 'Basic Care', price: 'AED150 / mo', features: ['Monthly backups', 'Security monitoring', 'Minor bug fixes', 'Uptime monitoring'], cta: 'Subscribe' },
+    { name: 'Standard Care', price: 'AED250 / mo', features: ['Everything in Basic', 'Monthly updates', 'Performance optimization', 'Content updates (limited)'], cta: 'Subscribe', popular: true },
+    { name: 'Premium Care', price: 'AED350 / mo', features: ['Everything in Standard', 'Priority support', 'Advanced security', 'Unlimited content updates'], cta: 'Subscribe' }
   ],
   'subscriptions': [
-    { name: 'Website Sub', price: '$99 / mo', features: ['Design & development', 'Ongoing updates', 'Hosting assistance', 'Support included'], cta: 'Subscribe' },
-    { name: 'E-Commerce Sub', price: '$149 / mo', features: ['Store development', 'Monthly updates', 'Product optimization', 'Priority support'], cta: 'Subscribe', popular: true },
+    { name: 'Website Sub', price: 'AED299 / mo', features: ['Design & development', 'Ongoing updates', 'Hosting assistance', 'Support included'], cta: 'Subscribe' },
+    { name: 'E-Commerce Sub', price: 'AED399 / mo', features: ['Store development', 'Monthly updates', 'Product optimization', 'Priority support'], cta: 'Subscribe', popular: true },
     { name: 'Custom Sub', price: 'Custom', features: ['Tailored services', 'Dedicated support', 'Scalable solutions', 'Unlimited iterations'], cta: 'Contact Us' }
   ]
 };
@@ -156,7 +156,6 @@ export const FAQS: Record<string, FAQItem[]> = {
     { question: 'How long does web design take?', answer: 'Our standard timeline is 5-7 business days, though larger projects may take up to 2 weeks for the initial phase.' },
     { question: 'Is my website mobile responsive?', answer: 'Yes, every design we produce is 100% mobile responsive and tested across all screen sizes.' },
     { question: 'How many revisions are included?', answer: 'We offer multiple revision rounds depending on the plan to ensure you are completely satisfied with the visual identity.' },
-    { question: 'Can I edit the content myself later?', answer: 'Absolutely. We typically build using CMS tools like Sanity, Starpi, or WordPress so you can manage your own content easily.' }
   ],
   'web-dev': [
     { question: 'Which technologies do you use?', answer: 'We specialize in modern stacks including React, Next.js, TypeScript, Tailwind CSS, and various headless CMS options.' },
@@ -189,18 +188,29 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   { 
     id: 'p-nova', 
     title: 'Nova Market', 
-    category: 'E-commerce', 
+    category: 'E-commerce Store', 
     imageUrl: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200',
     description: 'A cutting-edge multi-vendor e-commerce platform built for high-scale retail operations.',
-    tags: ['Web Development', 'E-Commerce']
+    tags: ['Web Design', 'E-Commerce'],
+    link: 'https://novamarket-eta.vercel.app/'
   },
   { 
     id: 'p-alnader', 
     title: 'Alnader Furniture', 
-    category: 'E-commerce', 
+    category: 'Furniture Company', 
     imageUrl: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1200',
     description: 'Bespoke furniture luxury e-commerce platform blending aesthetics with navigation.',
-    tags: ['Web Design', 'E-Commerce']
+    tags: ['Web Design', 'UI/UX'],
+    link: 'https://alnaderfurniture.vercel.app/'
+  },
+  { 
+    id: 'p-aar', 
+    title: 'AAR Tailoring', 
+    category: 'Tailoring Company', 
+    imageUrl: 'https://images.unsplash.com/photo-1598501479155-90baba44c8b0?auto=format&fit=crop&q=80&w=1200',
+    description: 'Premium custom tailoring platform focusing on digital booking and precision craftsmanship.',
+    tags: ['Web Design', 'UI/UX'],
+    link: 'https://aartailoring.vercel.app/'
   }
 ];
 
@@ -250,42 +260,42 @@ export const TESTIMONIALS = [
   { 
     id: 7, 
     name: "Eleanor Rigby", 
-    date: "15 January 2026",
+    date: "15 January 2025",
     content: "Their e-commerce expertise transformed our boutique shop into a global brand. The performance optimization is world-class.", 
     rating: 5
   },
   { 
     id: 8, 
     name: "Arjun Mehta", 
-    date: "02 February 2026",
+    date: "02 February 2025",
     content: "Visualix Studio delivers exactly what they promise: elite digital engineering. The transition was smooth, and the results are undeniable.", 
     rating: 5
   },
   { 
     id: 9, 
     name: "Sarah Jenkins", 
-    date: "10 February 2026",
+    date: "10 February 2025",
     content: "The most professional web design agency I've ever collaborated with. They understood our brand vision immediately and executed with precision.", 
     rating: 5
   },
   { 
     id: 10, 
     name: "David Ko", 
-    date: "22 March 2026",
+    date: "22 March 2025",
     content: "Visualix's ecommerce website development skills are unmatched. Our conversion rates tripled within the first month of launching the new site.", 
     rating: 5
   },
   { 
     id: 11, 
     name: "Linda Graham", 
-    date: "05 April 2026",
+    date: "05 April 2025",
     content: "From initial concept to final launch, the web development services provided were exceptional. Fast, secure, and beautiful results.", 
     rating: 5
   },
   { 
     id: 12, 
     name: "Ben Thompson", 
-    date: "15 May 2026",
+    date: "15 May 2025",
     content: "A truly futuristic approach to digital design. Their use of AI in planning saved us weeks of time and delivered a superior product.", 
     rating: 5
   }
